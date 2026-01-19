@@ -43,8 +43,8 @@ The debut gameplay module for AeroBeat is a rhythm-boxing experience.
 * **Hit:** If a target is hit appropriately, it explodes into a quickly decaying black or white particle with a satisfiying `smack` sound effect.
 * **Near Miss:** If a target hits your hand without you performing the appropriate action it flies off your hand with a `bonk` sound effect.
 * **Miss:** If a target gets passed you without getting hit, no sound effect is heard, but if a score multiplier is present, it will be reduced or reset.
-* **Portals:** Targets fly towards the athlete from portals which can appear from one of 8 locations around the athlete. On 2D screens without full VR support, the targets appear from one central portal instead.
-
+* **Portal-View:** Targets fly towards the athlete from a center portal. Inspired by Supernatural VR's gameplay.
+* **Track-View:** Targets move from the bottom of the screen to the top. Hit the target when it reaches the box at the top to succeed. Works great on smaller screens or when you stand farther away from the TV.
 
 ### Full Mechanics
 * **Reward Targets:** These targets explode to reveal `confetti` particles, paired with a `reward` sound effect. Can be hit by either `hand`.
@@ -53,6 +53,8 @@ The debut gameplay module for AeroBeat is a rhythm-boxing experience.
 * **Knee Strikes:** Lift your left or right knee at the right time to hit the black or white knee strike target. Always appears physically low in the portal.
 * **Leg Lifts:** Lift your left or right leg horizontally at the right time to match the shape of the obstacles flying at you. Counts as if a `obstacle` hit you if your `head` touches the side of the `obstacle` shape. (ex: a triangle that extends far to the left, signifying a left leg lift).
 * **Run In Place:** Rings of obstacles fly at the athlete rapidly. Signifies an an optional run-in-place segment for the athlete.
+* **360-Portal-View:** Portals can appear within a full 360 ring around you.
+* **3-Portal-View:** Only left, center, and right Portals appear in front of you, keeping you forward facing but adding more strategy to your workouts.
 
 ---
 
