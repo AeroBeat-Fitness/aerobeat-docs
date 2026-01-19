@@ -18,7 +18,7 @@ AeroBeat is not just a game; it is a **Platform** consisting of three decoupled 
 3.  **The Content:** Community-created playlists, songs, assets, environments, and even entirely new gameplay mechanics (ex: **Flow**, **Step**, and **Dance**).
 
 ### Key Pillars
-* **Accessibility First:** Hardware should not be a gatekeeper. If you have a supported device, you can play.
+* **Accessibility First:** Hardware should not be a gatekeeper. If you have any supported device and input type, you can play any gameplay mode.
 * **Fitness First:** Gameplay is designed for healthy habits, pushing for full movements that are safe to perform repeatedly.
 * **Open Ecosystem:** Built on Godot and open standards to encourage community modding and proprietary hardware integrations.
 
@@ -54,7 +54,8 @@ The debut gameplay module for AeroBeat is a rhythm-boxing experience.
 * **Leg Lifts:** Lift your left or right leg horizontally at the right time to match the shape of the obstacles flying at you. Counts as if a `obstacle` hit you if your `head` touches the side of the `obstacle` shape. (ex: a triangle that extends far to the left, signifying a left leg lift).
 * **Run In Place:** Rings of obstacles fly at the athlete rapidly. Signifies an an optional run-in-place segment for the athlete.
 * **360-Portal-View:** Portals can appear within a full 360 ring around you.
-* **3-Portal-View:** Only left, center, and right Portals appear in front of you, keeping you forward facing but adding more strategy to your workouts.
+* **3-Portal-View:** Only left, center, and right Portals appear in front of you, keeping you forward facing but adding more strategy to your workouts. For 2D screen users, all portals are visible at all times without moving your head (because you can't).
+* **Simultaneous-Portals:** Targets and obstacles can appear from multiple simultaneous portals. Used typically on Pro level difficulty. In VR you have to move to quickly face these new portals to hit targets with high accuracy and dodge obstacles while switching positions rapidle (left, center, right). In 2D the targets and obstacles appear from portals on the left and the right side of the center portal, but fly towards the player in the center without requiring the user adjust their body or head rotation.
 
 ---
 
