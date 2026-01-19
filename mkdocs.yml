@@ -1,0 +1,15 @@
+site_name: AeroBeat Documentation
+theme:
+  name: material
+  palette: 
+    primary: teal
+    accent: purple
+
+nav:
+  - Home: index.md
+  - Game Design:
+    - Overview: gdd/concept.md
+    - Mechanics: gdd/mechanics.md
+  - Technical:
+    - Architecture: architecture/architecture.md
+    - Core Contracts: 'https://github.com/aerobeat-fitness/aerobeat-core' # Link to repo
