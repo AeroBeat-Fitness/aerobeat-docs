@@ -4,7 +4,7 @@
 
 Unlike traditional rhythm games that are locked to specific ecosystems (VR headsets, pc, mobile, or consoles), AeroBeat is **Gameplay Agnostic**, **Hardware Agnostic**, and **Input Agnostic**. Each piece of the engine is expandable to support a variety of rhythm workout gameplay mechanics across a variety of devices.
 
-Our first featured rhythm workout Gameplay style is **Boxing** on for laptop and desktop PC's. By utilizing Computer Vision (CV) to turn standard webcams into high-fidelity motion controllers, we allow anyone with a laptop or desktop to access a premium workout experience previously reserved for VR owners.
+Our first featured rhythm workout Gameplay style is **Boxing** for laptop and desktop PC's. By utilizing Computer Vision (CV) to turn standard webcams into high-fidelity motion controllers, we allow anyone with a laptop or desktop to access a premium workout experience previously reserved for VR owners.
 
 ---
 
@@ -47,6 +47,7 @@ The debut gameplay module for AeroBeat is a rhythm-boxing experience.
 
 
 ### Full Mechanics
+* **Reward Targets:** These targets explode to reveal `confetti` particles, paired with a `reward` sound effect. Can be hit by either `hand`.
 * **Obstacles:** Orange lines that force the athlete to Squat (Legs) or Lean (Core), or both. Counts as hitting a target if you dodge these with your `head`, otherwise it counts as a `miss`. There are many obstacle types in the forms of multiple lines at different angles, or hollow shapes and patterns.
 * **Stance Changes:** At the start of a song and throughout, athletes may have to swap stances (Orthodox or Southpaw) which effects their real-world leg position and ability to throw quick punches from a cetain hand. This is not tracked by gameplay and is purely as a recommendation from the choreographer or coach.
 * **Knee Strikes:** Lift your left or right knee at the right time to hit the black or white knee strike target. Always appears physically low in the portal.
@@ -104,13 +105,27 @@ To support the "YouTube" vision, visual content is strictly separated from game 
 
 This allows the community to create "Total Conversion" aesthetics without touching a line of code.
 
+---
 
+## Community Creations
+
+When athletes navigate our community content portal, they can search and filter through various `playlists`. These are collections of content remixed to work together for a good workout experience by the community.
+
+Every `playlist` is made up of multiple pieces of community content and is specific to a Gameplay style. (ex: A `Boxing` playlist is not the same as a `Flow` playlist)
+
+* **Songs:** - Musicians can add their songs to the platform for others to use.
+* **Choreography:** - Songs can then have custom choreography written for them using our in-game charting software.
+* **Environments:** - Environments change up the background visuals and looping sound effects during a song. One environment is paired with one song in the playlist.
+* **Art Assets:** - Artists can create custom visuals for the `targets`, `obstacles`, `portals`, and `hands` used per song in the playlist.
 
 ---
 
 ## 🔮 Future Roadmap
 
-* **Phase 1 (Prototype):** PC Build + Python CV Sidecar + Basic Boxing Core.
-* **Phase 2 (Mobile):** Native Android/iOS Port + On-Device CV.
-* **Phase 3 (Platform):** Support for downloading community songs/skins.
+These will likely change as production continues, but they are our best guess based on the current priorities for the project.
+
+* **Phase 1 (Prototype):** PC Build + Python CV Sidecar + Basic Boxing Core + 1 Song - Get community feedback.
+* **Phase 2 (Mobile):** Native Android/iOS Port + On-Device CV - Test agnostic platform concepts.
+* **Phase 3 (Platform):** Support for downloading community playlists and creations - Test community creation system.
 * **Phase 4 (Multiplayer):** Real-time multiplayer with other athletes or compete against ghost data.
+* **Phase 5 (Additional Gameplay):** Support additional gameplay cores as requested by the community.
