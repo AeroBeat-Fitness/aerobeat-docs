@@ -34,19 +34,24 @@ The debut gameplay module for AeroBeat is a rhythm-boxing experience.
 3.  **The Feedback:** Successful hits trigger haptic feedback (if available), satisfying visual effects, and score multipliers if available.
 4.  **The Workout:** The pattern of targets forces the player into a "Flow State," seamlessly blending cardio with rhythm.
 
-### Mechanics
+### v0.0.1 Mechanics
 * **Directional Punches:** Actions such as Jabs, Crosses, Hooks, and Uppercuts are used to hit targets based on the their income direction.
-* **Left Targets** Black targets come from portals toward the athlete. They must be hit with the athletes left hand.
-* **Right Targets** White targets come from portals toward the athlete. They must be hit with the ahtletes right hand.
-* **Boxing Gloves** Your left hand has a visible black glove, and your right hand has a white glove. This helps you know what targets to hit with each hand.
-* **Hit** If a target is hit appropriately, it explodes into a quickly decaying black or white particle with a satisfiying `smack` sound effect.
-* **Near Miss** If a target hits your hand without you performing the appropriate action it flies off your hand with a `bonk` sound effect.
-* **Miss** If a target gets passed you without getting hit, no sound effect is heard, but if a score multiplier is present, it will be reduced or reset.
-* **Guard Targets** A target with a mix of black and white in yin-yang pattern. Requires player bring their arms together to block.
-* **Obstacles:** Walls that force the player to Squat (Legs) or Lean (Core), or both.
+* **Left Targets:** Black targets come from portals toward the athlete. They must be hit with the athletes left hand.
+* **Right Targets:** White targets come from portals toward the athlete. They must be hit with the ahtletes right hand.
+* **Boxing Gloves:** Your left hand has a visible black glove, and your right hand has a white glove. This helps you know what targets to hit with each hand.
+* **Guard Targets:** A target with a mix of black and white in yin-yang pattern. Requires player bring their arms together to block.
+* **Hit:** If a target is hit appropriately, it explodes into a quickly decaying black or white particle with a satisfiying `smack` sound effect.
+* **Near Miss:** If a target hits your hand without you performing the appropriate action it flies off your hand with a `bonk` sound effect.
+* **Miss:** If a target gets passed you without getting hit, no sound effect is heard, but if a score multiplier is present, it will be reduced or reset.
 * **Portals:** Targets fly towards the athlete from portals which can appear from one of 8 locations around the player. On 2D screens without full VR support, the targets appear from one central portal instead.
+
+
+### Full Mechanics
+* **Obstacles:** Orange lines that force the player to Squat (Legs) or Lean (Core), or both. Counts as hitting a target if you dodge these with your `head`, otherwise it counts as a `miss`.
 * **Stance Changes:** At the start of a song and throughout, athletes may have to swap stances (Orthodox or Southpaw) which effects their real-world leg position and ability to throw quick punches from a cetain hand. This is not tracked by gameplay and is purely as a recommendation from the choreographer or coach.
-* **Knee Strikes** Lift your left or right leg at the right time to hit the knee strike target.
+* **Knee Strikes:** Lift your left or right knee at the right time to hit the black or white knee strike target. Always appears physically low in the portal.
+* **Leg Lifts:** Lift your left or right leg horizontally at the right time to match the shape of the obstacles flying at you. Counts as if a `obstacle` hit you if your `head` touches the side of the `obstacle` shape. (ex: a triangle that extends far to the left, signifying a left leg lift).
+* **Run In Place:** Rings of obstacles fly at the player rapidly. Signifies an an optional run-in-place segment for the athlete.
 
 ---
 
@@ -54,9 +59,17 @@ The debut gameplay module for AeroBeat is a rhythm-boxing experience.
 
 In time, additional gameplay modules will become available, based on community requests and support.
 
-### `FLOW` - Swing bats at targets to destroy them. Based on the `Flow` mode made popular in SuperNatural and first popularized in Beat Saber.
-### `STEP` - Step on targets as they come towards you. Made popular in Stepmania and originally seen in arcades with Dance Dance Revolution.
-### `DANCE` - Perform popular dance moves to match the required gestures on screen. Originally seen in Dance Central.
+### FLOW: 
+* **Gameplay:** Swing bats at targets to destroy them.
+* **Based On:** SuperNatural VR's `Flow` gameplay, and first popularized in Beat Saber.
+
+### STEP: 
+* **Gameplay:** Step on targets as they come towards you.
+* **Based On:** Made popular with Dance Dance Revolution in arcades
+
+### DANCE:
+* **Gameplay:** Perform popular dance moves to match the gestures.
+* **Based On:** Originally popularized with the Dance Central series.
 
 ---
 
