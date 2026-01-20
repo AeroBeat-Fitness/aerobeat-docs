@@ -16,7 +16,7 @@ Our documentation is divided by role. Choose your path below:
 
 ### 🥊 [Game Design (GDD)](gdd/concept.md)
 *For Designers and Visionaries.*
-* Read the **Core Loop** and Scoring Logic.
+* Read the about **Core Loop** and Scoring Logic.
 * Understand the "Fitness-First" approach to difficulty.
 * Explore the roadmap for Multiplayer and Workshop features.
 
@@ -25,7 +25,7 @@ Our documentation is divided by role. Choose your path below:
 * Understand the **Hub-and-Spoke Polyrepo** topology.
 * Learn how `aerobeat-core` manages contracts between modules.
 * Dive into the **Session Context** dependency injection system.
-* **Key Tech:** Godot 4.x, GDScript, Python (MediaPipe).
+* **Key Tech:** Godot 4.x, GDScript, MediaPipe.
 
 ### 🎨 [Asset Pipeline](assets/pipeline.md)
 *For 3D Artists, Animators, and Mappers.*
@@ -41,11 +41,13 @@ AeroBeat uses a 5-tier repository structure to keep code clean and decoupled.
 
 | Repository | Role | License |
 | :--- | :--- | :--- |
-| **[`aerobeat-assembly`](#)** | The Game Client (The "Glue"). Builds the executable. | **GPLv3** |
-| **[`aerobeat-core`](#)** | The Engine Hub. Contracts, Signals, and Data Types. | **MPL 2.0** |
-| **[`aerobeat-feature-*`](#)** | Gameplay Logic (e.g., Boxing, Input Managers). | **GPLv3** |
-| **[`aerobeat-asset-*`](#)** | Content Packs (Skins, Environments). | **CC BY-NC 4.0** |
-| **[`aerobeat-docs`](#)** | This documentation site. | **CC BY-SA 4.0** |
+| **[`aerobeat-assembly`](#)** | The "App". Builds the executable. (Client/Server) | **GPLv3** |
+| **[`aerobeat-core`](#)** | The "Hub". Interfaces, Enums, Constants, Utils, Signals, and Data Types. | **MPL 2.0** |
+| **[`aerobeat-input-*`](#)** | Input managers seperated by their integration method. ex: `areobeat-input-mediapipe-python`. | **MPL 2.0** |
+| **[`aerobeat-feature-*`](#)** | Logic statellites. Pure gameplay mechancics | **GPLv3** |
+| **[`aerobeat-asset-*`](#)** | Content Satellites. Scenes, Models, Audio. | **CC BY-NC 4.0** |
+| **[`aerobeat-docs`](#)** | This documentation site. | **CC BY-NC 4.0** |
+| **[`aerobeat-vendor-*`](#)** | 3rd party utilities (Peer Dependencies). | **(As Upstream)** |
 
 ---
 
