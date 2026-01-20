@@ -24,6 +24,49 @@ AeroBeat is not just a game; it is a **Platform** consisting of three decoupled 
 
 ---
 
+## ⭐ Community Edition
+
+AeroBeat will be available from our website as the "Community Edition" for PC/Mac/Linux/Android, with the following features.
+
+* **Free-To-Win** - Download for free from our website. Uses a `supporter` model to fund development.
+* **Headset Free VR** - Brings the popular rhythm workout gameplay seen in VR titles to 2D screens using a standard Webcam.
+* **Gameplay Modes** - Multiple rhythm gameplay modes. `Boxing`, `Flow`, `Dance`, and `Step` available across devices.
+* **View Modes** - Change `view` styles between `track` and `portal` to visualize the gameplay in different ways, with each option being best for different purposes (`track` has targets rising from bottom-to-top in a 2D track like dance-dance-revolution and is best for small screens and mobile, while `portal` is a first person immersive view, great for TV's and VR).
+* **Multiplayer** - Supports both local and online multiplayer modes with `supporters` and `friends`.
+* **Play Anywhere** - Downloaded playlists are available offline and region free.
+* **Runs On Your Device** - Runs on Windows, Mac, Linux, and Android phones. Unavailable on iOS due to restrictions.
+* **Official Playlists** - Based on `supporter` funding, we will patronize the creation cost of `official` AeroBeat playlists.
+* **Community Playlists** - Play a never ending amount of content developed by the community.
+* **Meet Your Fitness Goals** - Track your progress and achieve your weekly workout goals to build good workout habits.
+
+To fund development, we will use a `supporter` model. Pay a one time fee for each month you wish to support AeroBeat and recieve the following account perks. These are similar to the perks given in the touch rhythm platform `Osu!` to their supporters, but with some new additions.
+
+* **Discord:** : Access `supporter` only sections of our Discord channel and visual flairs to your account
+* **Account Icon** : Shows your status as a supporter each time you log in
+* **Avatar Options** : Access supporter only customizations to be purchased with your `workout points`
+* **Leaderboard Shoutouts** : Supporters have their own tab on playlist leaderboards and their name on a leaderboard list is called out as being a supporter.
+* **Increased Friends List** : Double the size of your friends list (500 to 1000)
+* **Early Builds:** : Gain access to in-development feature builds
+* **Supporter-Only Polls:** : Supporters can voice their opinion on polls only available to them.
+
+---
+
+## ⭐ Digital Stores & Arcade Editions
+
+Porting AeroBeat to digital storefronts and Arcades requires the following changes to be successful.
+
+* **Top-40 Music:** - Publisher funding would be used to pay for the rights to popular music
+* **Choreography:** - Each song would be choreographed for our various difficulty levels as needed.
+* **Collaborations:** - Custom environments and assets would be created in collaborations with IP holders.
+* **Community Features:** - Generally unaccessible in these ports to prevent bad experiences with casual athletes.
+
+Each version of AeroBeat across storefronts would have a unique selling point.
+* **Arcade:** - Quick jump-in and play of individual songs. Use a touch screen to choose your gameplay style, song, and start! Uses the `portal` view with high resolution environments. Allows two players if there's enough physical space.
+* **Mobile:** - Focuses on fitness goals with a stripped down version of our Community edition's user interface. Defaults to `track` view for small screens.
+* **Steam:** - Similar to the mobile release, but defaults to `portal` view and high-resolution environments.
+
+---
+
 ## 🥊 Gameplay Core: "Boxing"
 
 The debut gameplay module for AeroBeat is a rhythm-boxing experience.
@@ -139,30 +182,29 @@ When choosing any playlist (official or community created), athletes can overrid
 
 ---
 
+## Policing Community Content
+
+The following restrictions will be put in place regarding community created content to prevent bad actors.
+
+* **Opt-In:** - Athletes must create an account and agree to our terms and conditions before accessing community content.
+* **DMCA Blocking:** - If AeroBeat recieves a DMCA takedown notice, the offending content will be unaccessible for new athletes.
+* **DMCA Bans:** - DMCA content takedowns will result in account warnings and bans for creators.
+* **Prevention:** - Offending content will be blocked from re-upload to our servers.
+* **Pre-Banned Lists:** - If a pre-banned list exists, AeroBeat will adhere to it.
+* **Marketing:** - All official communication and marketing will feature only legally licensed music and content.
+* **Discussion Bans:** - Discussing unpermitted content on our official channels (Discord) will result in warnings and eventual bans for bad actors. 
+
+--
+
 ## Workout Points & Goals
 
-AeroBeat is planned to include gamification systems to help build healthy workout habits.
+The following gamification systems will be included in the full release to help build healthy workout habits.
 
-* **Workout Points:** - Playlists award points after completing them, you can see your total workout points since you started playing AeroBeat on the main menu near your account icon.
+* **Workout Points:** - Playlists award `workout points` after completing them, you can see your total workout points since you started playing AeroBeat on the main menu near your account icon.
 * **Weekly Goal:** - Set how many times you want to workout per week, and AeroBeat will automatically track this. Shown on our main UI and after a playlist finishes. Provides positive reinforcement each day you complete a playlist, and even more when you finish your weekly goal. Shown as a 7-day timestamp system for easy visual identification.
-* **Avatars:** - Create a customizable avatar seen in multiplayer. Spend workout points to unlock new options.
+* **Avatars:** - Create a customizable avatar seen in multiplayer. Spend `workout points` to unlock new options.
 * **Leaderboards:** - View how your doing in comparison to other athletes and your online friends.
 
----
-
-## Funding & Distribution Model
-
-AeroBeat is a free community-driven platform available from our website. To keep things running, there are a few potential options.
-
-* **Supporters:** - The community version of AeroBeat is intended to be funded using a `supporter` model. Account level perks would be available for supporters to fund development and pay for associated expenses (server, legal, ip, song rights, choreography, etc). This is based on the success of the touch rhythm game platform `Osu!`, which uses a similar model.
-
-In addition, we can work with publishers to port AeroBeat. These would require licensing popular music and paying for the choreography charts. Giving them a shelf-life limited by their sales and upkeep costs. These versions cannot use the community features (custom content, multiplayer) due to licensing issues.
-
-* **Arcade Version:** - The `Camera` gameplay of `Boxing` and `Flow` are perfect for arcades.
-* **Switch Version:** - Use the Joycons for `Boxing` and `Flow` gameplay. Focuses on workout habits.
-* **Mobile Stores:** - Similar to the `Arcade` version. Focuses on workout habits.
-* **Steam Version:** - Allows any Input type, including VR gameplay.
- 
 ---
 
 ## 🔮 Future Roadmap
