@@ -35,8 +35,12 @@ AeroBeat will be available from our website as the "Community Edition" for PC/Ma
 * **Multiplayer** - Supports both local and online multiplayer modes with `supporters` and `friends`.
 * **Play Anywhere** - Downloaded playlists are available offline and region free.
 * **Runs On Your Device** - Runs on Windows, Mac, Linux, and Android phones. Unavailable on iOS due to restrictions.
+* **Playlist Browser** - Easily search and filter playlists. Sign in or create an account to enable `community playlists`.
 * **Official Playlists** - Based on `supporter` funding, we will patronize the creation cost of `official` AeroBeat playlists.
-* **Community Playlists** - Play a never ending amount of content developed by the community.
+* **Community Playlists** - Navigate our `playlist browser` to find a never ending amount of content developed by the community.
+* **Favorites** - Add playlists and creators to your `favorite` to easily find them again
+* **Recommended Playlists** - Featured pre-screened playlists we think you'll love based on your play style. 
+* **Playlist Of The Day** - Featured pre-screened playlist our `supporters` want to shout-out as the `playlist of the day` for everyone to see.
 * **Meet Your Fitness Goals** - Track your progress and achieve your weekly workout goals to build good workout habits.
 
 To fund development, we will use a `supporter` model. Pay a one time fee for each month you wish to support AeroBeat and recieve the following account perks. These are similar to the perks given in the touch rhythm platform `Osu!` to their supporters, but with some new additions.
