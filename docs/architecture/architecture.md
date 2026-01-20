@@ -16,26 +16,32 @@
 AeroBeat is a **Modular Rhythm Platform**. We strictly decouple **Input** (Hardware), **UI** (Platform Interaction), **Logic** (Gameplay), and **Content** (Assets).
 
 ## 2. Repository Topology
-We adhere to a strict 7-Tier repository structure.
+We adhere to a strict **7-Tier** repository structure. Dependencies are categorized to ensure modularity and prevent circular references.
 
-| Tier | Repo Name | Role | Dependencies Allowed | License |
-| :--- | :--- | :--- | :--- | :--- |
-| **Assembly** | `aerobeat-assembly` | The "App." Builds the Executable (Client/Server). | All Packages. | **GPLv3** |
-| **Core** | `aerobeat-core` | The "Hub." Interfaces, Enums, Constants, Utils. | **None** (Zero-Dependency). | **MPL 2.0** |
-| **Input** | `aerobeat-input-*` | Input managers seperated by their integration method. ex: `aerobeat-input-mediapipe-python`. | Core, Vendor. | **MPL 2.0** |
-| **UI** | `aerobeat-ui-*` | **Interaction Layer.** Platform-specific Menus (Mobile vs VR). | **GPLv3** |
-| **Feature** | `aerobeat-feature-*` | Logic Satellites. Pure gameplay mechanics. | Core, Vendor. | **GPLv3** |
-| **Asset** | `aerobeat-asset-*` | Content Satellites. Scenes, Models, Audio. | Core, **Single** Feature. | **CC BY-NC 4.0** |
-| **Docs** | `aerobeat-docs` | Documentation Website (MkDocs). | None. | **CC BY-NC 4.0** |
-| **Vendor** | `aerobeat-vendor` | 3rd Party Utilities (Peer Dependencies). | None. | *(As Upstream)* |
+| Tier | Repo Name | Role | Required Deps | Allowed Deps | Dev-Only / Peer Deps | License |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Assembly** | `aerobeat-assembly` | **The Router.** Manages App State & Dependency Injection. | All Active Packages | All Assets | Test Frameworks (Gut) | **GPLv3** |
+| **Core** | `aerobeat-core` | **The Hub.** Interfaces, Data Types, Global Constants. | **None** | **None** | Unit Test Tools | **MPL 2.0** |
+| **Input** | `aerobeat-input-*` | **Hardware Drivers.** (Camera, VR, Watch). | `aerobeat-core` | Vendor SDKs | Testbed Scaffolding | **MPL 2.0** |
+| **UI Kit** | `aerobeat-ui-kit` | **Atomic Library.** Pure, stateless components (Buttons, Cards). | `aerobeat-core` | `aerobeat-asset-common` | Testbed Scaffolding | **MPL 2.0** |
+| **UI Shell** | `aerobeat-ui-*` | **Interaction Layer.** Platform-specific screens (Mobile, VR). | `aerobeat-core`<br>`aerobeat-ui-kit` | `aerobeat-asset-common`<br>(Local Assets) | Vendor Tools (Tweeners)<br>Mock Data | **GPLv3** |
+| **Feature** | `aerobeat-feature-*` | **Gameplay Logic.** Pure mechanics (Boxing, Flow). | `aerobeat-core` | Vendor Utils | Testbed Scaffolding | **GPLv3** |
+| **Asset** | `aerobeat-asset-*` | **Content.** Skins, Songs, Environments. | `aerobeat-core` | **One** Feature (Inheritance) | **None** | **CC BY-NC 4.0** |
+| **Docs** | `aerobeat-docs` | **Manual.** Documentation Website. | **None** | **None** | MkDocs Plugins | **CC BY-NC 4.0** |
+| **Vendor** | `aerobeat-vendor` | **3rd Party Tools.** Utilities and Helpers. | **None** | **None** | *(As Upstream)* | *(As Upstream)* |
 
-### 2.0.5 The UI Tier Strategy (MVVM)
+### 2.1 Dependency Definitions
+* **Required Dependencies:** The code will not compile without these. They must be present in `addons/`.
+* **Allowed Dependencies:** You may link to these if needed (e.g., using the Official Font from `asset-common`), but they are not strictly mandatory for logic.
+* **Dev-Only / Peer Dependencies:** Tools used for testing (like `Gut` or `Tween` libraries). In Production, these are provided by the Host Assembly. In Development, they are cloned via `setup_dev`.
+
+### 2.2 The UI Tier Strategy (MVVM)
 We do not have a "Default UI." The Assembly defines **UI Contracts** (`AeroMenuProvider`), and the UI Tier implements them.
 * **`aerobeat-ui-mobile`**: 2D Touch-based interface (Scrolls, Taps).
 * **`aerobeat-ui-desktop`**: Mouse/Keyboard interface (Hover states, Keybinds).
 * **`aerobeat-ui-vr`**: Spatial interface (Laser pointers, World-Space Canvas).
 
-### 2.1 Repository List (v0.0.1)
+### 2.3 Repository List (v0.0.1)
 * **`aerobeat-assembly`**: The main Godot project. Contains `project.godot`, Export Presets, and Main Menu logic.
 * **`aerobeat-core`**: The unified hub for Contracts (`AeroInputStrategy`), Signals (`AeroEvents`), Constants (`AeroConst`), and Data Types.
 * **`aerobeat-input-mediapipe-python`**: Tracks body movement using MediaPipe camera events, then passes them via UDP listeners.
@@ -46,15 +52,43 @@ We do not have a "Default UI." The Assembly defines **UI Contracts** (`AeroMenuP
 
 ## 3. Core Systems Architecture
 
-### 3.1 Input Pipeline (`aerobeat-feature-input`)
-Input is abstracted via a Strategy Pattern to allow hot-swapping between CV, VR, and Debug modes.
+### 3.1 Input Pipeline (Provider Pattern)
 
-* **Interface:** `AeroInputStrategy` (Defined in Core).
-* **Strategies:**
-    * `StrategyHydra`: Launches/Monitors Python process. Listens on UDP `localhost:8100` for MediaPipe landmarks.
-    * `StrategyJoycon`: Interfaces with Switch controllers.
-    * `StrategyDebug`: Simulates input via Keyboard/Mouse.
-* **Normalization:** All inputs are normalized to `0.0 - 1.0` Viewport Space before leaving this package.
+Input is abstracted via a Strategy Pattern to allow hot-swapping between CV, VR, and Debug modes. The game logic never talks to hardware directly; it asks the **Input Provider** for normalized data.
+
+* **Interface:** `AeroInputProvider` (Defined in `aerobeat-core`).
+* **Contract:** Must return normalized `0.0 - 1.0` Viewport Coordinates for `LeftHand`, `RightHand`, and `Head`.
+
+**Supported Strategies:**
+
+| Strategy Name | Repository | Technology | Target Platform |
+| :--- | :--- | :--- | :--- |
+| **`StrategyMediaPipePython`** | `aerobeat-input-mediapipe-python` | **Sidecar Process.** Launches a Python subprocess that pipes landmark data via UDP `localhost:8100`. | Windows, Linux, Mac |
+| **`StrategyMediaPipeNative`** | `aerobeat-input-mediapipe-native` | **GDExtension / Plugin.** Runs MediaPipe directly in the application memory. | Android, iOS |
+| **`StrategyJoyconHID`** | `aerobeat-input-joycon-hid` | **Raw Bluetooth.** Connects directly to JoyCons to read high-speed Gyro/Accel data. | Windows, Linux, Android |
+| **`StrategyKeyboard`** | `aerobeat-input-standard` | **Godot Native.** Maps WASD/Arrow keys to specific lanes (Virtual Presence). | All |
+| **`StrategyMouse`** | `aerobeat-input-standard` | **Godot Native.** Maps cursor X/Y to viewport coordinates. | Desktop / Web |
+| **`StrategyTouch`** | `aerobeat-input-standard` | **Godot Native.** Maps touchscreen taps to viewport coordinates. | Mobile / Tablet |
+| **`StrategyGamepad`** | `aerobeat-input-standard` | **Godot Native.** Standard XInput (Xbox/PS5) stick mapping. | All |
+
+### 3.1.1 Strategy Grouping Rationale
+You will notice that "Standard" inputs (Keyboard, Mouse, Touch) are bundled into a single repository (`aerobeat-input-standard`), while "Exotic" inputs (MediaPipe, JoyCon) get their own dedicated repositories.
+
+**The Logic: Group by Tech Stack, Not Function.**
+
+1.  **The "Native" Tier (`input-standard`):**
+    * Keyboard, Mouse, Touch, and Standard Gamepads all rely on the **same underlying dependency**: the Godot Engine's built-in `Input` singleton.
+    * They have zero external footprint (no DLLs, no Python scripts).
+    * Splitting them into 4 separate repos would create administrative bloat with no architectural benefit.
+
+2.  **The "Driver" Tier (`input-mediapipe-*`, `input-joycon`):**
+    * These inputs require **Heavy External Dependencies** (Python Environments, Android .aar Libraries, GDExtensions).
+    * **Isolation is Safety:** By keeping the Python CV stack in its own repo, we ensure that a Mobile developer never has to download a 200MB Python environment they can't use. Likewise, a PC developer doesn't need to compile Android Java code just to fix a keyboard bug.
+
+**Normalization Flow:**
+1.  **Raw Data:** Strategy receives device-specific data (e.g., MediaPipe Landmark `x: 0.54, y: 0.21, z: -0.1`).
+2.  **Adaptation:** Strategy applies technology-specific offsets (e.g., flipping Y axis for OpenCV).
+3.  **Delivery:** Strategy exposes `get_left_hand_transform()` to the Game Loop.
 
 ### 3.2 State Management
 * **Session Context:** `AeroSessionContext` (Core). Injected into Features at runtime.
@@ -106,6 +140,18 @@ Since Godot lacks a native package manager for assets, we enforce consistency vi
 2.  **The Workflow:**
     * Developers **NEVER** modify `addons/aerobeat-ui-kit` inside a Shell repo.
     * Updates are made in the `aerobeat-ui-kit` repo, tagged, and then pulled into Shells via the sync script.
+
+### 3.4.4 UI Dependency Rules
+
+To ensure UI repositories remain lightweight and fast to test, we enforce the following dependency limits:
+
+| Dependency Type | Repository | Status | Logic |
+| :--- | :--- | :--- | :--- |
+| **Contract Hub** | `aerobeat-core` | **Required** | Needed for `AeroMenuProvider` interface. |
+| **Component Kit** | `aerobeat-ui-kit` | **Required** | Source of all buttons, sliders, and standard widgets. |
+| **Shared Assets** | `aerobeat-asset-common` | **Allowed** | Fonts, Logos, and Global Icons only. |
+| **Vendor Tools** | `aerobeat-vendor` | **Dev-Only** | Tween libs or UI helpers. In Prod, these are Peer Dependencies provided by Assembly. |
+| **Game Content** | `aerobeat-asset-*` | **FORBIDDEN** | UI must never depend on specific Level/Env packs. Use Mock Data for testing. |
 
 ---
 
