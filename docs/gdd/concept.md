@@ -82,7 +82,7 @@ In time, additional gameplay modules will become available, based on community r
 AeroBeat's "Secret Sauce" is its ability to normalize data from wildly different hardware into a standard viewport space.
 
 ### Tier 1: Computer Vision (CV)
-* **Tech:** MediaPipe (Python Sidecar on PC / Native Plugin on Mobile).
+* **Tech:** MediaPipe (Python on PC / Native Plugin on Mobile).
 * **Experience:** "Controller-Free." The athlete stands in front of a camera. The game tracks hands, arms, shoulders, and your head.
 * **Pros:** Zero cost, high accessibility.
 * **Cons:** Higher latency than VR, occlusion issues.
@@ -104,9 +104,11 @@ To support the "YouTube" vision, visual content is strictly separated from game 
 
 * **Logic (The Skeleton):** A "Target" is just a mathematical hitbox and a timestamp.
 * **Skin (The Visuals):** Artists can replace the default `targets`, `obstacles`, `portals`, and `hands` to skin the games visuals.
-* **Environment:** The games included environments primary show outdoor scenes on natural wonder. They can be replaced with anything from a *Live Concert Stage* to the *Moon*.
+* **Environment:** The included environments can be replaced easily. Transporting athletes anywhere from a *Live Concert Stage* to the *Moon*.
 
-This allows the community to create "Total Conversion" aesthetics without touching a line of code.
+This allows the community to create "Total Conversion" aesthetics without touching a line of code. 
+
+Atheletes simply select a playlist and the engine takes care of the rest.
 
 ---
 
@@ -114,12 +116,26 @@ This allows the community to create "Total Conversion" aesthetics without touchi
 
 When athletes navigate our community content portal, they can search and filter through various `playlists`. These are collections of content remixed to work together for a good workout experience by the community.
 
-Every `playlist` is made up of multiple pieces of community content and is specific to a Gameplay style. (ex: A `Boxing` playlist is not the same as a `Flow` playlist)
+Every `playlist` is made up of multiple pieces of community content and is specific to a Gameplay style and difficulty level. (ex: A `Boxing` playlist is not the same as a `Flow` playlist, and a `easy` playlist is not the same as a `pro` playlist)
 
 * **Songs:** - Musicians can add their songs to the platform for others to use.
-* **Choreography:** - Songs can then have custom choreography written for them using our in-game charting software.
+* **Choreography:** - Custom choreography written for songs using our in-game charting software. The choreographer uploads their work under a specific difficulty level (`easy`, `medium`, `hard`, `pro`). Limited to one chart per difficulty per song.
 * **Environments:** - Environments change up the background visuals and looping sound effects during a song. One environment is paired with one song in the playlist.
-* **Art Assets:** - Artists can create custom visuals for the `targets`, `obstacles`, `portals`, and `hands` used per song in the playlist.
+* **Art Assets:** - Artists can create custom visuals for the `targets`, `obstacles`, `portals`, and `hands` used per song in the playlist. 
+
+When creating a `playlist`, a creator uses our in-game community content browser to pick the following.
+* **Gameplay:** - What gameplay style is this playlist made for? (`Boxing`, `Flow`, etc)
+* **Difficulty:** - Choose what difficulty level this playlist is intended for (`easy`, `medium`, `hard`, `pro`).
+* **Songs:** - What songs are in this playlist? Limited to songs with existing choreography that matches your playlist and difficulty.
+* **Choreography:** - Optional: By default we use the most popular choreography chart per gameplay and difficulty, however you can override this to choose another match.
+* **Environments:** - Optional: Change the recommended environment. Once selection per song in the playlist.
+* **Assets:** - Optional: Change the recommended visuals such as `targets`, `obstacles`, `portals`, and `hands`.
+* **Coaching:** - Optional: Add warm up and cool down videos that play before and after the playlist finishes. In addition to an optional audio track to play during each song in the workout for your coaching.
+
+When choosing any playlist (official or community created), athletes can override the following.
+* **Environment:** - Disable custom environments from being used, instead using your preferred settings in your profile.
+* **Assets:** - Disable custom assets from being used, instead using your preferred settings in your profile.
+* **Coaching:** - Disable all coaching material from playing.
 
 ---
 
@@ -127,7 +143,7 @@ Every `playlist` is made up of multiple pieces of community content and is speci
 
 These will likely change as production continues, but they are our best guess based on the current priorities for the project.
 
-* **Phase 1 (Prototype):** PC Build + Python CV Sidecar + Basic Boxing Core + 1 Song - Get community feedback.
+* **Phase 1 (Prototype):** PC Build + Python CV + Basic Boxing Core + 1 Song - Get community feedback.
 * **Phase 2 (Mobile):** Native Android/iOS Port + On-Device CV - Test agnostic platform concepts.
 * **Phase 3 (Platform):** Support for downloading community playlists and creations - Test community creation system.
 * **Phase 4 (Multiplayer):** Real-time multiplayer with other athletes or compete against ghost data.
