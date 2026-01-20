@@ -51,8 +51,8 @@ If you are a hardware vendor looking to integrate your device (Smart Glove, Hapt
 
 ## 📚 For Documentation Writers
 
-* **License:** **CC BY-SA 4.0 (Attribution-ShareAlike)**
-* **The Rule:** Our Wiki, GDD, and Architecture docs are community-owned. If you improve them, you must share those improvements under the same license.
+* **License:** **CC BY-NC 4.0 (Attribution-NonCommercial)**
+* **The Rule:** Our Wiki, GDD, and Architecture docs are community-owned. If you improve them, you must share those improvements under the same license. You cannot use our documentation for commercial means.
 
 ---
 
