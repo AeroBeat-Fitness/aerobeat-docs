@@ -1300,10 +1300,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#205-the-ui-tier-strategy-mvvm" class="md-nav__link">
+  <a href="#21-dependency-definitions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.0.5 The UI Tier Strategy (MVVM)
+        2.1 Dependency Definitions
       
     </span>
   </a>
@@ -1311,10 +1311,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#21-repository-list-v001" class="md-nav__link">
+  <a href="#22-the-ui-tier-strategy-mvvm" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.1 Repository List (v0.0.1)
+        2.2 The UI Tier Strategy (MVVM)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-repository-list-v001" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Repository List (v0.0.1)
       
     </span>
   </a>
@@ -1339,10 +1350,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#31-input-pipeline-aerobeat-feature-input" class="md-nav__link">
+  <a href="#31-input-pipeline-provider-pattern" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3.1 Input Pipeline (aerobeat-feature-input)
+        3.1 Input Pipeline (Provider Pattern)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#311-strategy-grouping-rationale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1.1 Strategy Grouping Rationale
       
     </span>
   </a>
@@ -1426,6 +1448,17 @@
     <span class="md-ellipsis">
       
         3.5.3 The UI Sync Protocol (Tooling)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#344-ui-dependency-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4.4 UI Dependency Rules
       
     </span>
   </a>
@@ -2126,10 +2159,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#205-the-ui-tier-strategy-mvvm" class="md-nav__link">
+  <a href="#21-dependency-definitions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.0.5 The UI Tier Strategy (MVVM)
+        2.1 Dependency Definitions
       
     </span>
   </a>
@@ -2137,10 +2170,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#21-repository-list-v001" class="md-nav__link">
+  <a href="#22-the-ui-tier-strategy-mvvm" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.1 Repository List (v0.0.1)
+        2.2 The UI Tier Strategy (MVVM)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-repository-list-v001" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Repository List (v0.0.1)
       
     </span>
   </a>
@@ -2165,10 +2209,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#31-input-pipeline-aerobeat-feature-input" class="md-nav__link">
+  <a href="#31-input-pipeline-provider-pattern" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3.1 Input Pipeline (aerobeat-feature-input)
+        3.1 Input Pipeline (Provider Pattern)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#311-strategy-grouping-rationale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1.1 Strategy Grouping Rationale
       
     </span>
   </a>
@@ -2252,6 +2307,17 @@
     <span class="md-ellipsis">
       
         3.5.3 The UI Sync Protocol (Tooling)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#344-ui-dependency-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4.4 UI Dependency Rules
       
     </span>
   </a>
@@ -2443,14 +2509,16 @@
 <h2 id="1-executive-summary">1. Executive Summary</h2>
 <p>AeroBeat is a <strong>Modular Rhythm Platform</strong>. We strictly decouple <strong>Input</strong> (Hardware), <strong>UI</strong> (Platform Interaction), <strong>Logic</strong> (Gameplay), and <strong>Content</strong> (Assets).</p>
 <h2 id="2-repository-topology">2. Repository Topology</h2>
-<p>We adhere to a strict 7-Tier repository structure.</p>
+<p>We adhere to a strict <strong>7-Tier</strong> repository structure. Dependencies are categorized to ensure modularity and prevent circular references.</p>
 <table>
 <thead>
 <tr>
 <th style="text-align: left;">Tier</th>
 <th style="text-align: left;">Repo Name</th>
 <th style="text-align: left;">Role</th>
-<th style="text-align: left;">Dependencies Allowed</th>
+<th style="text-align: left;">Required Deps</th>
+<th style="text-align: left;">Allowed Deps</th>
+<th style="text-align: left;">Dev-Only / Peer Deps</th>
 <th style="text-align: left;">License</th>
 </tr>
 </thead>
@@ -2458,67 +2526,98 @@
 <tr>
 <td style="text-align: left;"><strong>Assembly</strong></td>
 <td style="text-align: left;"><code>aerobeat-assembly</code></td>
-<td style="text-align: left;">The "App." Builds the Executable (Client/Server).</td>
-<td style="text-align: left;">All Packages.</td>
+<td style="text-align: left;"><strong>The Router.</strong> Manages App State &amp; Dependency Injection.</td>
+<td style="text-align: left;">All Active Packages</td>
+<td style="text-align: left;">All Assets</td>
+<td style="text-align: left;">Test Frameworks (Gut)</td>
 <td style="text-align: left;"><strong>GPLv3</strong></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Core</strong></td>
 <td style="text-align: left;"><code>aerobeat-core</code></td>
-<td style="text-align: left;">The "Hub." Interfaces, Enums, Constants, Utils.</td>
-<td style="text-align: left;"><strong>None</strong> (Zero-Dependency).</td>
+<td style="text-align: left;"><strong>The Hub.</strong> Interfaces, Data Types, Global Constants.</td>
+<td style="text-align: left;"><strong>None</strong></td>
+<td style="text-align: left;"><strong>None</strong></td>
+<td style="text-align: left;">Unit Test Tools</td>
 <td style="text-align: left;"><strong>MPL 2.0</strong></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Input</strong></td>
 <td style="text-align: left;"><code>aerobeat-input-*</code></td>
-<td style="text-align: left;">Input managers seperated by their integration method. ex: <code>aerobeat-input-mediapipe-python</code>.</td>
-<td style="text-align: left;">Core, Vendor.</td>
+<td style="text-align: left;"><strong>Hardware Drivers.</strong> (Camera, VR, Watch).</td>
+<td style="text-align: left;"><code>aerobeat-core</code></td>
+<td style="text-align: left;">Vendor SDKs</td>
+<td style="text-align: left;">Testbed Scaffolding</td>
 <td style="text-align: left;"><strong>MPL 2.0</strong></td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>UI</strong></td>
+<td style="text-align: left;"><strong>UI Kit</strong></td>
+<td style="text-align: left;"><code>aerobeat-ui-kit</code></td>
+<td style="text-align: left;"><strong>Atomic Library.</strong> Pure, stateless components (Buttons, Cards).</td>
+<td style="text-align: left;"><code>aerobeat-core</code></td>
+<td style="text-align: left;"><code>aerobeat-asset-common</code></td>
+<td style="text-align: left;">Testbed Scaffolding</td>
+<td style="text-align: left;"><strong>MPL 2.0</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>UI Shell</strong></td>
 <td style="text-align: left;"><code>aerobeat-ui-*</code></td>
-<td style="text-align: left;"><strong>Interaction Layer.</strong> Platform-specific Menus (Mobile vs VR).</td>
+<td style="text-align: left;"><strong>Interaction Layer.</strong> Platform-specific screens (Mobile, VR).</td>
+<td style="text-align: left;"><code>aerobeat-core</code><br><code>aerobeat-ui-kit</code></td>
+<td style="text-align: left;"><code>aerobeat-asset-common</code><br>(Local Assets)</td>
+<td style="text-align: left;">Vendor Tools (Tweeners)<br>Mock Data</td>
 <td style="text-align: left;"><strong>GPLv3</strong></td>
-<td style="text-align: left;"></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Feature</strong></td>
 <td style="text-align: left;"><code>aerobeat-feature-*</code></td>
-<td style="text-align: left;">Logic Satellites. Pure gameplay mechanics.</td>
-<td style="text-align: left;">Core, Vendor.</td>
+<td style="text-align: left;"><strong>Gameplay Logic.</strong> Pure mechanics (Boxing, Flow).</td>
+<td style="text-align: left;"><code>aerobeat-core</code></td>
+<td style="text-align: left;">Vendor Utils</td>
+<td style="text-align: left;">Testbed Scaffolding</td>
 <td style="text-align: left;"><strong>GPLv3</strong></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Asset</strong></td>
 <td style="text-align: left;"><code>aerobeat-asset-*</code></td>
-<td style="text-align: left;">Content Satellites. Scenes, Models, Audio.</td>
-<td style="text-align: left;">Core, <strong>Single</strong> Feature.</td>
+<td style="text-align: left;"><strong>Content.</strong> Skins, Songs, Environments.</td>
+<td style="text-align: left;"><code>aerobeat-core</code></td>
+<td style="text-align: left;"><strong>One</strong> Feature (Inheritance)</td>
+<td style="text-align: left;"><strong>None</strong></td>
 <td style="text-align: left;"><strong>CC BY-NC 4.0</strong></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Docs</strong></td>
 <td style="text-align: left;"><code>aerobeat-docs</code></td>
-<td style="text-align: left;">Documentation Website (MkDocs).</td>
-<td style="text-align: left;">None.</td>
+<td style="text-align: left;"><strong>Manual.</strong> Documentation Website.</td>
+<td style="text-align: left;"><strong>None</strong></td>
+<td style="text-align: left;"><strong>None</strong></td>
+<td style="text-align: left;">MkDocs Plugins</td>
 <td style="text-align: left;"><strong>CC BY-NC 4.0</strong></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Vendor</strong></td>
 <td style="text-align: left;"><code>aerobeat-vendor</code></td>
-<td style="text-align: left;">3rd Party Utilities (Peer Dependencies).</td>
-<td style="text-align: left;">None.</td>
+<td style="text-align: left;"><strong>3rd Party Tools.</strong> Utilities and Helpers.</td>
+<td style="text-align: left;"><strong>None</strong></td>
+<td style="text-align: left;"><strong>None</strong></td>
+<td style="text-align: left;"><em>(As Upstream)</em></td>
 <td style="text-align: left;"><em>(As Upstream)</em></td>
 </tr>
 </tbody>
 </table>
-<h3 id="205-the-ui-tier-strategy-mvvm">2.0.5 The UI Tier Strategy (MVVM)</h3>
+<h3 id="21-dependency-definitions">2.1 Dependency Definitions</h3>
+<ul>
+<li><strong>Required Dependencies:</strong> The code will not compile without these. They must be present in <code>addons/</code>.</li>
+<li><strong>Allowed Dependencies:</strong> You may link to these if needed (e.g., using the Official Font from <code>asset-common</code>), but they are not strictly mandatory for logic.</li>
+<li><strong>Dev-Only / Peer Dependencies:</strong> Tools used for testing (like <code>Gut</code> or <code>Tween</code> libraries). In Production, these are provided by the Host Assembly. In Development, they are cloned via <code>setup_dev</code>.</li>
+</ul>
+<h3 id="22-the-ui-tier-strategy-mvvm">2.2 The UI Tier Strategy (MVVM)</h3>
 <p>We do not have a "Default UI." The Assembly defines <strong>UI Contracts</strong> (<code>AeroMenuProvider</code>), and the UI Tier implements them.
 * <strong><code>aerobeat-ui-mobile</code></strong>: 2D Touch-based interface (Scrolls, Taps).
 * <strong><code>aerobeat-ui-desktop</code></strong>: Mouse/Keyboard interface (Hover states, Keybinds).
 * <strong><code>aerobeat-ui-vr</code></strong>: Spatial interface (Laser pointers, World-Space Canvas).</p>
-<h3 id="21-repository-list-v001">2.1 Repository List (v0.0.1)</h3>
+<h3 id="23-repository-list-v001">2.3 Repository List (v0.0.1)</h3>
 <ul>
 <li><strong><code>aerobeat-assembly</code></strong>: The main Godot project. Contains <code>project.godot</code>, Export Presets, and Main Menu logic.</li>
 <li><strong><code>aerobeat-core</code></strong>: The unified hub for Contracts (<code>AeroInputStrategy</code>), Signals (<code>AeroEvents</code>), Constants (<code>AeroConst</code>), and Data Types.</li>
@@ -2528,18 +2627,91 @@
 </ul>
 <hr />
 <h2 id="3-core-systems-architecture">3. Core Systems Architecture</h2>
-<h3 id="31-input-pipeline-aerobeat-feature-input">3.1 Input Pipeline (<code>aerobeat-feature-input</code>)</h3>
-<p>Input is abstracted via a Strategy Pattern to allow hot-swapping between CV, VR, and Debug modes.</p>
+<h3 id="31-input-pipeline-provider-pattern">3.1 Input Pipeline (Provider Pattern)</h3>
+<p>Input is abstracted via a Strategy Pattern to allow hot-swapping between CV, VR, and Debug modes. The game logic never talks to hardware directly; it asks the <strong>Input Provider</strong> for normalized data.</p>
 <ul>
-<li><strong>Interface:</strong> <code>AeroInputStrategy</code> (Defined in Core).</li>
-<li><strong>Strategies:</strong><ul>
-<li><code>StrategyHydra</code>: Launches/Monitors Python process. Listens on UDP <code>localhost:8100</code> for MediaPipe landmarks.</li>
-<li><code>StrategyJoycon</code>: Interfaces with Switch controllers.</li>
-<li><code>StrategyDebug</code>: Simulates input via Keyboard/Mouse.</li>
+<li><strong>Interface:</strong> <code>AeroInputProvider</code> (Defined in <code>aerobeat-core</code>).</li>
+<li><strong>Contract:</strong> Must return normalized <code>0.0 - 1.0</code> Viewport Coordinates for <code>LeftHand</code>, <code>RightHand</code>, and <code>Head</code>.</li>
+</ul>
+<p><strong>Supported Strategies:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Strategy Name</th>
+<th style="text-align: left;">Repository</th>
+<th style="text-align: left;">Technology</th>
+<th style="text-align: left;">Target Platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>StrategyMediaPipePython</code></strong></td>
+<td style="text-align: left;"><code>aerobeat-input-mediapipe-python</code></td>
+<td style="text-align: left;"><strong>Sidecar Process.</strong> Launches a Python subprocess that pipes landmark data via UDP <code>localhost:8100</code>.</td>
+<td style="text-align: left;">Windows, Linux, Mac</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>StrategyMediaPipeNative</code></strong></td>
+<td style="text-align: left;"><code>aerobeat-input-mediapipe-native</code></td>
+<td style="text-align: left;"><strong>GDExtension / Plugin.</strong> Runs MediaPipe directly in the application memory.</td>
+<td style="text-align: left;">Android, iOS</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>StrategyJoyconHID</code></strong></td>
+<td style="text-align: left;"><code>aerobeat-input-joycon-hid</code></td>
+<td style="text-align: left;"><strong>Raw Bluetooth.</strong> Connects directly to JoyCons to read high-speed Gyro/Accel data.</td>
+<td style="text-align: left;">Windows, Linux, Android</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>StrategyKeyboard</code></strong></td>
+<td style="text-align: left;"><code>aerobeat-input-standard</code></td>
+<td style="text-align: left;"><strong>Godot Native.</strong> Maps WASD/Arrow keys to specific lanes (Virtual Presence).</td>
+<td style="text-align: left;">All</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>StrategyMouse</code></strong></td>
+<td style="text-align: left;"><code>aerobeat-input-standard</code></td>
+<td style="text-align: left;"><strong>Godot Native.</strong> Maps cursor X/Y to viewport coordinates.</td>
+<td style="text-align: left;">Desktop / Web</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>StrategyTouch</code></strong></td>
+<td style="text-align: left;"><code>aerobeat-input-standard</code></td>
+<td style="text-align: left;"><strong>Godot Native.</strong> Maps touchscreen taps to viewport coordinates.</td>
+<td style="text-align: left;">Mobile / Tablet</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>StrategyGamepad</code></strong></td>
+<td style="text-align: left;"><code>aerobeat-input-standard</code></td>
+<td style="text-align: left;"><strong>Godot Native.</strong> Standard XInput (Xbox/PS5) stick mapping.</td>
+<td style="text-align: left;">All</td>
+</tr>
+</tbody>
+</table>
+<h3 id="311-strategy-grouping-rationale">3.1.1 Strategy Grouping Rationale</h3>
+<p>You will notice that "Standard" inputs (Keyboard, Mouse, Touch) are bundled into a single repository (<code>aerobeat-input-standard</code>), while "Exotic" inputs (MediaPipe, JoyCon) get their own dedicated repositories.</p>
+<p><strong>The Logic: Group by Tech Stack, Not Function.</strong></p>
+<ol>
+<li>
+<p><strong>The "Native" Tier (<code>input-standard</code>):</strong></p>
+<ul>
+<li>Keyboard, Mouse, Touch, and Standard Gamepads all rely on the <strong>same underlying dependency</strong>: the Godot Engine's built-in <code>Input</code> singleton.</li>
+<li>They have zero external footprint (no DLLs, no Python scripts).</li>
+<li>Splitting them into 4 separate repos would create administrative bloat with no architectural benefit.</li>
 </ul>
 </li>
-<li><strong>Normalization:</strong> All inputs are normalized to <code>0.0 - 1.0</code> Viewport Space before leaving this package.</li>
+<li>
+<p><strong>The "Driver" Tier (<code>input-mediapipe-*</code>, <code>input-joycon</code>):</strong></p>
+<ul>
+<li>These inputs require <strong>Heavy External Dependencies</strong> (Python Environments, Android .aar Libraries, GDExtensions).</li>
+<li><strong>Isolation is Safety:</strong> By keeping the Python CV stack in its own repo, we ensure that a Mobile developer never has to download a 200MB Python environment they can't use. Likewise, a PC developer doesn't need to compile Android Java code just to fix a keyboard bug.</li>
 </ul>
+</li>
+</ol>
+<p><strong>Normalization Flow:</strong>
+1.  <strong>Raw Data:</strong> Strategy receives device-specific data (e.g., MediaPipe Landmark <code>x: 0.54, y: 0.21, z: -0.1</code>).
+2.  <strong>Adaptation:</strong> Strategy applies technology-specific offsets (e.g., flipping Y axis for OpenCV).
+3.  <strong>Delivery:</strong> Strategy exposes <code>get_left_hand_transform()</code> to the Game Loop.</p>
 <h3 id="32-state-management">3.2 State Management</h3>
 <ul>
 <li><strong>Session Context:</strong> <code>AeroSessionContext</code> (Core). Injected into Features at runtime.</li>
@@ -2601,6 +2773,50 @@
 </ul>
 </li>
 </ol>
+<h3 id="344-ui-dependency-rules">3.4.4 UI Dependency Rules</h3>
+<p>To ensure UI repositories remain lightweight and fast to test, we enforce the following dependency limits:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Dependency Type</th>
+<th style="text-align: left;">Repository</th>
+<th style="text-align: left;">Status</th>
+<th style="text-align: left;">Logic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Contract Hub</strong></td>
+<td style="text-align: left;"><code>aerobeat-core</code></td>
+<td style="text-align: left;"><strong>Required</strong></td>
+<td style="text-align: left;">Needed for <code>AeroMenuProvider</code> interface.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Component Kit</strong></td>
+<td style="text-align: left;"><code>aerobeat-ui-kit</code></td>
+<td style="text-align: left;"><strong>Required</strong></td>
+<td style="text-align: left;">Source of all buttons, sliders, and standard widgets.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Shared Assets</strong></td>
+<td style="text-align: left;"><code>aerobeat-asset-common</code></td>
+<td style="text-align: left;"><strong>Allowed</strong></td>
+<td style="text-align: left;">Fonts, Logos, and Global Icons only.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Vendor Tools</strong></td>
+<td style="text-align: left;"><code>aerobeat-vendor</code></td>
+<td style="text-align: left;"><strong>Dev-Only</strong></td>
+<td style="text-align: left;">Tween libs or UI helpers. In Prod, these are Peer Dependencies provided by Assembly.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Game Content</strong></td>
+<td style="text-align: left;"><code>aerobeat-asset-*</code></td>
+<td style="text-align: left;"><strong>FORBIDDEN</strong></td>
+<td style="text-align: left;">UI must never depend on specific Level/Env packs. Use Mock Data for testing.</td>
+</tr>
+</tbody>
+</table>
 <hr />
 <h2 id="4-development-workflow">4. Development Workflow</h2>
 <h3 id="41-dependency-management">4.1 Dependency Management</h3>
