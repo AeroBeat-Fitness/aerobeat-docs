@@ -124,7 +124,7 @@ In time, additional gameplay modules will become available, based on community r
 
 ---
 
-## Accessibility Modifiers
+## ♿ Accessibility Modifiers
 
 Before starting a playlist, athletes can enable accessibility focused modifiers to change their gameplay.
 
