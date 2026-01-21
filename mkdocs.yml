@@ -67,7 +67,8 @@ nav:
       - Workflow & Assets: architecture/workflow.md
       - Reference: architecture/reference.md
     - Core Contracts: api/core/
-    - Assembly: api/assembly/
+    - Assembly:
+      - Community Edition: api/assembly/
     - Input Systems:
       - Camera (PC): api/inputs/mediapipe_python/
       - Camera (Mobile): api/inputs/mediapipe_native/

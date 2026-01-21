@@ -4,7 +4,7 @@ We adhere to a strict **7-Tier** repository structure. Dependencies are categori
 
 | Tier | Repo Name | Role | Required Deps | Allowed Deps | Dev-Only / Peer Deps | License |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Assembly** | `aerobeat-assembly` | **The Router.** Manages App State & Dependency Injection. | All Active Packages | All Assets | Test Frameworks (Gut) | **GPLv3** |
+| **Assembly** | `aerobeat-assembly-*` | **The Product.** Specific editions (Community, Arcade). | All Active Packages | All Assets | Test Frameworks (Gut) | **GPLv3** |
 | **Core** | `aerobeat-core` | **The Hub.** Interfaces, Data Types, Global Constants. | **None** | **None** | Unit Test Tools | **MPL 2.0** |
 | **Input** | `aerobeat-input-*` | **Hardware Drivers.** (Camera, VR, Watch). | `aerobeat-core` | Vendor SDKs | Testbed Scaffolding | **MPL 2.0** |
 | **UI Kit** | `aerobeat-ui-kit` | **Atomic Library.** Pure, stateless components (Buttons, Cards). | `aerobeat-core` | `aerobeat-asset-common` | Testbed Scaffolding | **MPL 2.0** |
@@ -30,7 +30,7 @@ We do not have a "Default UI." The Assembly defines **UI Contracts** (`AeroMenuP
 
 ### Repository List (v0.0.1)
 
-* **`aerobeat-assembly`**: The main Godot project. Contains `project.godot`, Export Presets, and Main Menu logic.
+* **`aerobeat-assembly-community`**: The standard PC/Mobile release. Contains the Main Menu, Login Flow, and Playlist Browser.
 * **`aerobeat-core`**: The unified hub for Contracts (`AeroInputStrategy`), Signals (`AeroEvents`), Constants (`AeroConst`), and Data Types.
 * **`aerobeat-input-mediapipe-python`**: Tracks body movement using MediaPipe camera events, then passes them via UDP listeners.
 * **`aerobeat-feature-boxing`**: The Boxing gameplay loop, hit detection, and choreography parser.

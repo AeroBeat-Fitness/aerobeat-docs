@@ -1,7 +1,7 @@
-# Assembly
+# Community Edition
 
 🚧 **Work In Progress**
 
 This module has not been documented yet.
 
-View the source code on GitHub: [https://github.com/AeroBeat-Fitness/aerobeat-assembly](https://github.com/AeroBeat-Fitness/aerobeat-assembly)
+View the source code on GitHub: [https://github.com/AeroBeat-Fitness/aerobeat-assembly-community](https://github.com/AeroBeat-Fitness/aerobeat-assembly-community)

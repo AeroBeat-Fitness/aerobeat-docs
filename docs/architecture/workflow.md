@@ -3,7 +3,7 @@
 ### Dependency Management
 
 * **Git Submodules:** Managed via a `setup_dev` script in each repo root.
-* **Peer Dependencies:** 3rd Party Plugins (e.g., PhantomCamera) are installed in the `aerobeat-assembly` root. Feature packages access them via `class_name` availability (Duck Typing).
+* **Peer Dependencies:** 3rd Party Plugins (e.g., PhantomCamera) are installed in the `aerobeat-assembly-*` root. Feature packages access them via `class_name` availability (Duck Typing).
 
 ### The `.testbed` Pattern
 

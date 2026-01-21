@@ -3,7 +3,9 @@
 In time, additional gameplay modules will become available, based on community requests and support.
 
 ## BOXING:
+
 Our initial gameplay style we are creating.
+
 * **Gameplay:** Punch targets to destroy them and dodge obstacles.
 * **Based On:** SuperNatural VR's `Boxing` gameplay.
 

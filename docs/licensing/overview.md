@@ -15,7 +15,7 @@ Our codebase is split into three categories. The license depends on which reposi
 * **The Rule:** If you modify these files, you **must** share your changes.
 * **The Nuance:** This is "File-Level Copyleft." You can link proprietary modules to the Core (e.g., a closed-source Leaderboard SDK) as long as the Core files themselves remain open.
 
-### 2. The Game Client (`aerobeat-assembly` & `aerobeat-feature-*`)
+### 2. The Game Client (`aerobeat-assembly-*` & `aerobeat-feature-*`)
 * **License:** **GNU GPLv3**
 * **The Rule:** The "Product" is strictly Open Source. If you distribute a modified version of the AeroBeat Game Client, you must release the entire source code.
 * **Why:** This prevents corporations from taking our community's work, closing the source, and selling it as a clone.
@@ -61,7 +61,7 @@ If you are a hardware vendor looking to integrate your device (Smart Glove, Hapt
 | Repository Prefix | License | Can I Close Source? |
 | :--- | :--- | :--- |
 | `aerobeat-core` | **MPL 2.0** | Only your new files. |
-| `aerobeat-assembly` | **GPLv3** | **No.** |
+| `aerobeat-assembly-*` | **GPLv3** | **No.** |
 | `aerobeat-feature-*`| **GPLv3** | **No.** |
 | `aerobeat-input-*` | **MPL 2.0** | Only your new files/SDKs. |
 | `aerobeat-asset-*` | **CC BY-NC 4.0** | **No** (and no commercial use). |

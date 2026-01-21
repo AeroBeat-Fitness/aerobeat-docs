@@ -7,8 +7,8 @@ PLACEHOLDERS = {
         "repo": "https://github.com/AeroBeat-Fitness/aerobeat-core"
     },
     "docs/api/assembly": {
-        "title": "Assembly",
-        "repo": "https://github.com/AeroBeat-Fitness/aerobeat-assembly"
+        "title": "Assembly (Community)",
+        "repo": "https://github.com/AeroBeat-Fitness/aerobeat-assembly-community"
     },
     "docs/api/features/boxing": {
         "title": "Boxing Feature",

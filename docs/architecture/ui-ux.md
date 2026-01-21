@@ -19,7 +19,7 @@ We utilize the **Atomic Design Methodology** to maximize code reuse across dispa
 * **Responsibility:**
     1.  **Import:** Consumes the `aerobeat-ui-kit` via the **UI Sync Protocol**.
     2.  **Layout:** Arranges Organisms into usable Screens (`MainMenu`, `GameplayHUD`).
-    3.  **Wiring:** Connects component signals to App Logic (`aerobeat-assembly`).
+    3.  **Wiring:** Connects component signals to App Logic (`aerobeat-assembly-*`).
 
 ### The UI Sync Protocol (Tooling)
 
