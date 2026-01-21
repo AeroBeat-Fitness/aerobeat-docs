@@ -1,0 +1,168 @@
+name: Publish Docs
+on:
+  push:
+    branches:
+      - main
+permissions:
+  contents: write
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install -g gdscript-docs-maker
+
+      - name: Checkout Core
+        uses: actions/checkout@v4
+        with:
+          repository: AeroBeat-Fitness/aerobeat-core
+          path: external/aerobeat-core
+
+      - name: Checkout Assembly
+        uses: actions/checkout@v4
+        with:
+          repository: AeroBeat-Fitness/aerobeat-assembly
+          path: external/aerobeat-assembly
+
+      - name: Checkout Boxing
+        uses: actions/checkout@v4
+        with:
+          repository: AeroBeat-Fitness/aerobeat-feature-boxing
+          path: external/aerobeat-feature-boxing
+
+      - name: Checkout Input (Keyboard)
+        uses: actions/checkout@v4
+        with:
+          repository: AeroBeat-Fitness/aerobeat-input-keyboard
+          path: external/aerobeat-input-keyboard
+
+      - name: Checkout Input (Mouse)
+        uses: actions/checkout@v4
+        with:
+          repository: AeroBeat-Fitness/aerobeat-input-mouse
+          path: external/aerobeat-input-mouse
+
+      - name: Checkout Input (Touch)
+        uses: actions/checkout@v4
+        with:
+          repository: AeroBeat-Fitness/aerobeat-input-touch
+          path: external/aerobeat-input-touch
+
+      - name: Checkout Input (Gamepad)
+        uses: actions/checkout@v4
+        with:
+          repository: AeroBeat-Fitness/aerobeat-input-gamepad
+          path: external/aerobeat-input-gamepad
+
+      - name: Checkout Assets (Prototypes)
+        uses: actions/checkout@v4
+        with:
+          repository: AeroBeat-Fitness/aerobeat-asset-prototypes
+          path: external/aerobeat-asset-prototypes
+
+      - name: Generate Core API Docs
+        run: |
+          if [ -d "external/aerobeat-core/contracts" ]; then
+            gdscript-docs-maker external/aerobeat-core/contracts -o docs/api/core --format markdown
+          else
+            echo "⚠️ Core contracts not found. Creating placeholder."
+            mkdir -p docs/api/core
+            echo "# Core Contracts" > docs/api/core/index.md
+            echo "Coming soon." >> docs/api/core/index.md
+          fi
+
+      - name: Generate Assembly API Docs
+        run: |
+          if [ -d "external/aerobeat-assembly/scripts" ]; then
+            gdscript-docs-maker external/aerobeat-assembly/scripts -o docs/api/assembly --format markdown
+          else
+            echo "⚠️ Assembly scripts not found. Creating placeholder."
+            mkdir -p docs/api/assembly
+            echo "# Assembly" > docs/api/assembly/index.md
+            echo "Coming soon." >> docs/api/assembly/index.md
+          fi
+
+      - name: Generate Boxing API Docs
+        run: |
+          if [ -d "external/aerobeat-feature-boxing/scripts" ]; then
+            gdscript-docs-maker external/aerobeat-feature-boxing/scripts -o docs/api/features/boxing --format markdown
+          else
+            echo "⚠️ Boxing scripts not found. Creating placeholder."
+            mkdir -p docs/api/features/boxing
+            echo "# Boxing Feature" > docs/api/features/boxing/index.md
+            echo "Coming soon." >> docs/api/features/boxing/index.md
+          fi
+
+      - name: Generate Input API Docs (Keyboard)
+        run: |
+          if [ -d "external/aerobeat-input-keyboard/scripts" ]; then
+            gdscript-docs-maker external/aerobeat-input-keyboard/scripts -o docs/api/inputs/keyboard --format markdown
+          else
+            echo "⚠️ Keyboard Input scripts not found. Creating placeholder."
+            mkdir -p docs/api/inputs/keyboard
+            echo "# Keyboard Input" > docs/api/inputs/keyboard/index.md
+            echo "Coming soon." >> docs/api/inputs/keyboard/index.md
+          fi
+
+      - name: Generate Input API Docs (Mouse)
+        run: |
+          if [ -d "external/aerobeat-input-mouse/scripts" ]; then
+            gdscript-docs-maker external/aerobeat-input-mouse/scripts -o docs/api/inputs/mouse --format markdown
+          else
+            echo "⚠️ Mouse Input scripts not found. Creating placeholder."
+            mkdir -p docs/api/inputs/mouse
+            echo "# Mouse Input" > docs/api/inputs/mouse/index.md
+            echo "Coming soon." >> docs/api/inputs/mouse/index.md
+          fi
+
+      - name: Generate Input API Docs (Touch)
+        run: |
+          if [ -d "external/aerobeat-input-touch/scripts" ]; then
+            gdscript-docs-maker external/aerobeat-input-touch/scripts -o docs/api/inputs/touch --format markdown
+          else
+            echo "⚠️ Touch Input scripts not found. Creating placeholder."
+            mkdir -p docs/api/inputs/touch
+            echo "# Touch Input" > docs/api/inputs/touch/index.md
+            echo "Coming soon." >> docs/api/inputs/touch/index.md
+          fi
+
+      - name: Generate Input API Docs (Gamepad)
+        run: |
+          if [ -d "external/aerobeat-input-gamepad/scripts" ]; then
+            gdscript-docs-maker external/aerobeat-input-gamepad/scripts -o docs/api/inputs/gamepad --format markdown
+          else
+            echo "⚠️ Gamepad Input scripts not found. Creating placeholder."
+            mkdir -p docs/api/inputs/gamepad
+            echo "# Gamepad Input" > docs/api/inputs/gamepad/index.md
+            echo "Coming soon." >> docs/api/inputs/gamepad/index.md
+          fi
+
+      - name: Generate Asset API Docs (Prototypes)
+        run: |
+          if [ -d "external/aerobeat-asset-prototypes/scripts" ]; then
+            gdscript-docs-maker external/aerobeat-asset-prototypes/scripts -o docs/api/assets/prototypes --format markdown
+          else
+            echo "⚠️ Prototype Asset scripts not found. Creating placeholder."
+            mkdir -p docs/api/assets/prototypes
+            echo "# Prototype Assets" > docs/api/assets/prototypes/index.md
+            echo "Coming soon." >> docs/api/assets/prototypes/index.md
+          fi
+
+      - name: Generate Release Notes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/generate_changelog.py
+
+      - run: pip install -r requirements.txt
+      - run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          mkdocs gh-deploy --force

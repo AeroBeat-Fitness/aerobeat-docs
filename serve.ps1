@@ -5,9 +5,7 @@ if (-not (Test-Path "venv")) {
     python -m venv venv
 }
 
-if (-not (Test-Path "venv\Scripts\mkdocs.exe")) {
-    Write-Host "Installing dependencies..."
-    .\venv\Scripts\pip install -r requirements.txt
-}
+Write-Host "Syncing dependencies..."
+.\venv\Scripts\pip install -r requirements.txt
 
 .\venv\Scripts\mkdocs serve

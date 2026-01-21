@@ -66,20 +66,19 @@ Input is abstracted via a Strategy Pattern to allow hot-swapping between CV, VR,
 | **`StrategyMediaPipePython`** | `aerobeat-input-mediapipe-python` | **Sidecar Process.** Launches a Python subprocess that pipes landmark data via UDP `localhost:8100`. | Windows, Linux, Mac |
 | **`StrategyMediaPipeNative`** | `aerobeat-input-mediapipe-native` | **GDExtension / Plugin.** Runs MediaPipe directly in the application memory. | Android, iOS |
 | **`StrategyJoyconHID`** | `aerobeat-input-joycon-hid` | **Raw Bluetooth.** Connects directly to JoyCons to read high-speed Gyro/Accel data. | Windows, Linux, Android |
-| **`StrategyKeyboard`** | `aerobeat-input-standard` | **Godot Native.** Maps WASD/Arrow keys to specific lanes (Virtual Presence). | All |
-| **`StrategyMouse`** | `aerobeat-input-standard` | **Godot Native.** Maps cursor X/Y to viewport coordinates. | Desktop / Web |
-| **`StrategyTouch`** | `aerobeat-input-standard` | **Godot Native.** Maps touchscreen taps to viewport coordinates. | Mobile / Tablet |
-| **`StrategyGamepad`** | `aerobeat-input-standard` | **Godot Native.** Standard XInput (Xbox/PS5) stick mapping. | All |
+| **`StrategyKeyboard`** | `aerobeat-input-keyboard` | **Godot Native.** Maps WASD/Arrow keys to specific lanes (Virtual Presence). | All |
+| **`StrategyMouse`** | `aerobeat-input-mouse` | **Godot Native.** Maps cursor X/Y to viewport coordinates. | Desktop / Web |
+| **`StrategyTouch`** | `aerobeat-input-touch` | **Godot Native.** Maps touchscreen taps to viewport coordinates. | Mobile / Tablet |
+| **`StrategyGamepad`** | `aerobeat-input-gamepad` | **Godot Native.** Standard XInput (Xbox/PS5) stick mapping. | All |
 
 ### 3.1.1 Strategy Grouping Rationale
-You will notice that "Standard" inputs (Keyboard, Mouse, Touch) are bundled into a single repository (`aerobeat-input-standard`), while "Exotic" inputs (MediaPipe, JoyCon) get their own dedicated repositories.
+We enforce a **One-Repo-Per-Device-Type** policy, even for standard Godot inputs.
 
-**The Logic: Group by Tech Stack, Not Function.**
+**The Logic: Granularity & Quirks.**
 
-1.  **The "Native" Tier (`input-standard`):**
-    * Keyboard, Mouse, Touch, and Standard Gamepads all rely on the **same underlying dependency**: the Godot Engine's built-in `Input` singleton.
-    * They have zero external footprint (no DLLs, no Python scripts).
-    * Splitting them into 4 separate repos would create administrative bloat with no architectural benefit.
+1.  **Isolation of Quirks:**
+    * While Godot handles generic Gamepads well, specific controllers (like DDR Dance Pads or Flight Sticks) often report as generic gamepads but require specific axis remapping or deadzone logic.
+    * By isolating `aerobeat-input-gamepad`, we can implement complex remapping strategies without polluting the clean logic of `aerobeat-input-keyboard`.
 
 2.  **The "Driver" Tier (`input-mediapipe-*`, `input-joycon`):**
     * These inputs require **Heavy External Dependencies** (Python Environments, Android .aar Libraries, GDExtensions).
@@ -90,13 +89,29 @@ You will notice that "Standard" inputs (Keyboard, Mouse, Touch) are bundled into
 2.  **Adaptation:** Strategy applies technology-specific offsets (e.g., flipping Y axis for OpenCV).
 3.  **Delivery:** Strategy exposes `get_left_hand_transform()` to the Game Loop.
 
-### 3.2 State Management
-* **Session Context:** `AeroSessionContext` (Core). Injected into Features at runtime.
-* **User Profile:** Managed by Assembly, passed to UI for display.
+### 3.2 State Management & Multiplayer Strategy
+To support multiplayer without refactoring core logic, we strictly separate **Immutable Context** from **Mutable State**.
 
-1.  **Definition (`aerobeat-core`):** `class_name AeroSessionContext`. Defines immutable rules for a round (Speed Multiplier, No Fail, Hit Window MS).
-2.  **Assembly (`aerobeat-assembly`):** The App constructs this object based on User Profile + UI Overrides immediately before gameplay.
-3.  **Consumption (`aerobeat-feature-*`):** Features receive this Context in their `setup()` function. They do not access Global variables.
+#### 3.2.1 The Session Context (Immutable)
+* **Class:** `AeroSessionContext` (Core).
+* **Role:** Defines the "Rules of the Round" (Song ID, Difficulty, Modifiers, Random Seed).
+* **Sync:** Sent **Once** by the Host before the round starts.
+* **Rule:** Features **READ** this to configure themselves. They **NEVER** modify it.
+
+#### 3.2.2 The User State (Mutable / Replicated)
+* **Class:** `AeroUserState` (Core).
+* **Role:** Holds real-time player data (Score, Combo, Health, Current Input Pose).
+* **Authority:** The **Local Client** is the authority on their own score/hits (Client-Side Prediction).
+* **Replication:**
+    * **High Frequency (Unreliable):** Avatar Pose (Head/Hands) for visual representation.
+    * **Event Based (Reliable):** Score updates, Combo breaks, Health changes.
+* **Rule:** Features write to their Local `AeroUserState`. The Assembly handles replicating this object to other peers.
+
+#### 3.2.3 The "Remote Athlete" Pattern
+Multiplayer opponents are visualized as "Remote Athletes" (Avatars).
+1.  **Local Athlete:** Input -> Logic -> `AeroUserState` (Local).
+2.  **Remote Athlete:** Network -> `AeroUserState` (Remote) -> Avatar Visualizer.
+3.  **Constraint:** Gameplay Logic (`aerobeat-feature-*`) must accept a `target_user_state` in its setup. It does not assume it is always driving the main UI.
 
 ### 3.3 Audio Conductor
 We do not use `_process(delta)` for rhythm timing.

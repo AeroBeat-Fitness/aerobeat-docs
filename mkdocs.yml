@@ -7,10 +7,26 @@ theme:
   palette: 
     primary: teal
     accent: purple
+plugins:
+  - search
+  - literate-nav:
+      nav_file: SUMMARY.md
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 nav:
   - Home: index.md
   - Licensing: licensing/overview.md
+  - Release Notes: releases/changelog.md
   - Game Design:
     - Overview: gdd/concept.md
     - Art: 
@@ -36,17 +52,17 @@ nav:
       - Policing Content: gdd/user-content/policing-content.md
   - Technical:
     - Architecture: architecture/architecture.md
-    - Core Contracts: 'https://github.com/aerobeat-fitness/aerobeat-core'
-    - Assembly: 'https://github.com/aerobeat-fitness/aerobeat-assembly'
+    - Core Contracts: api/core/
+    - Assembly: api/assembly/
     - Input Systems:
-      - Camera (PC): 'https://github.com/aerobeat-fitness/aerobeat-input-mediapipe-python'
-      - Camera (Mobile): 'https://github.com/aerobeat-fitness/aerobeat-input-mediapipe-native'
-      - Joycon: 'https://github.com/aerobeat-fitness/aerobeat-input-joycon-hid'
-      - Keyboard: 'https://github.com/aerobeat-fitness/aerobeat-input-keyboard'
-      - Controller: 'https://github.com/aerobeat-fitness/aerobeat-input-controller'
-      - Mouse: 'https://github.com/aerobeat-fitness/aerobeat-input-mouse'
-      - Touch: 'https://github.com/aerobeat-fitness/aerobeat-input-touch'
+      - Camera (PC): api/inputs/mediapipe_python/
+      - Camera (Mobile): api/inputs/mediapipe_native/
+      - Joycon: api/inputs/joycon/
+      - Keyboard: api/inputs/keyboard/
+      - Controller: api/inputs/gamepad/
+      - Mouse: api/inputs/mouse/
+      - Touch: api/inputs/touch/
     - Features:
-      - Boxing: 'https://github.com/aerobeat-fitness/aerobeat-feature-boxing'
+      - Boxing: api/features/boxing/
     - Assets:
-      - Prototypes: 'https://github.com/aerobeat-fitness/aerobeat-asset-prototypes'
+      - Prototypes: api/assets/prototypes/
