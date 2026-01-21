@@ -26,7 +26,7 @@ Our documentation is divided by role. Choose your path below:
 * Understand the "Fitness-First" approach to difficulty.
 * Explore the roadmap for Multiplayer and Workshop features.
 
-### 🛠️ [Technical Architecture](architecture/architecture.md)
+### 🛠️ Technical Architecture
 *For Software Engineers and System Architects.*
 * Understand the **Hub-and-Spoke Polyrepo** topology.
 * Learn how `aerobeat-core` manages contracts between modules.

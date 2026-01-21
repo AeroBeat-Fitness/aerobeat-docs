@@ -56,7 +56,16 @@ nav:
       - Community Creations: gdd/user-content/community-creations.md
       - Policing Content: gdd/user-content/policing-content.md
   - Technical:
-    - Architecture: architecture/architecture.md
+    - Architecture:
+      - Overview: architecture/overview.md
+      - Repository Topology: architecture/topology.md
+      - Input: architecture/input.md
+      - State Management: architecture/state-management.md
+      - Multiplayer: architecture/multiplayer.md
+      - Audio: architecture/audio.md
+      - UI Architecture: architecture/ui-ux.md
+      - Workflow & Assets: architecture/workflow.md
+      - Reference: architecture/reference.md
     - Core Contracts: api/core/
     - Assembly: api/assembly/
     - Input Systems:
