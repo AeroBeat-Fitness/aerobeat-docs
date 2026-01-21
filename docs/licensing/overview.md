@@ -39,6 +39,16 @@ Our creative content is protected differently than our code to prevent "Asset Fl
 
 ---
 
+## 🏢 For Commercial Partners (Publishers, Stores & Arcades)
+
+While our community releases are strictly GPLv3, **AeroBeat-Fitness retains the copyright** to the codebase. This allows us to offer **Dual Licensing** for commercial partners.
+
+1.  **Dual Licensing:** We can license the AeroBeat engine to publishers under a closed-source, proprietary license for specific platforms (Arcade, Console, Steam, Mobile).
+2.  **Funding:** Revenue from these commercial partnerships is used to fund the development of the Open Source Community Edition.
+3.  **Contributor License Agreement (CLA):** To make this possible, we require contributors to sign a CLA, granting AeroBeat-Fitness the right to re-license their contributions for these specific commercial versions.
+
+---
+
 ## 🏢 For Hardware Partners
 
 If you are a hardware vendor looking to integrate your device (Smart Glove, Haptic Vest, XR Headset) with AeroBeat:

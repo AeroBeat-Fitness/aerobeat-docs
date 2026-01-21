@@ -2,6 +2,11 @@
 
 Porting AeroBeat to digital storefronts and Arcades requires the following changes from the community edition to be successful.
 
+### Licensing Strategy
+Unlike the Community Edition (GPLv3), these releases are **Commercial Products** licensed under a **Proprietary EULA**.
+*   **Why?** Publisher agreements for Top-40 music and IP collaborations require strict Digital Rights Management (DRM) and closed-source distribution to prevent asset extraction.
+*   **The Code:** These versions are built using the **Dual Licensing** model enabled by our CLA.
+
 * **Top-40 Music:** - Publisher funding would be used to pay for the rights to popular music
 * **Choreography:** - Each song would be choreographed for our various difficulty levels as needed.
 * **Collaborations:** - Custom environments and assets would be created in collaborations with IP holders.
