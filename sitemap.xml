@@ -21,6 +21,50 @@
          <lastmod>2026-01-21</lastmod>
     </url>
     <url>
+         <loc>https://aerobeat-fitness.github.io/aerobeat-docs/api/assembly/</loc>
+         <lastmod>2026-01-21</lastmod>
+    </url>
+    <url>
+         <loc>https://aerobeat-fitness.github.io/aerobeat-docs/api/assets/prototypes/</loc>
+         <lastmod>2026-01-21</lastmod>
+    </url>
+    <url>
+         <loc>https://aerobeat-fitness.github.io/aerobeat-docs/api/core/</loc>
+         <lastmod>2026-01-21</lastmod>
+    </url>
+    <url>
+         <loc>https://aerobeat-fitness.github.io/aerobeat-docs/api/features/boxing/</loc>
+         <lastmod>2026-01-21</lastmod>
+    </url>
+    <url>
+         <loc>https://aerobeat-fitness.github.io/aerobeat-docs/api/inputs/gamepad/</loc>
+         <lastmod>2026-01-21</lastmod>
+    </url>
+    <url>
+         <loc>https://aerobeat-fitness.github.io/aerobeat-docs/api/inputs/joycon/</loc>
+         <lastmod>2026-01-21</lastmod>
+    </url>
+    <url>
+         <loc>https://aerobeat-fitness.github.io/aerobeat-docs/api/inputs/keyboard/</loc>
+         <lastmod>2026-01-21</lastmod>
+    </url>
+    <url>
+         <loc>https://aerobeat-fitness.github.io/aerobeat-docs/api/inputs/mediapipe_native/</loc>
+         <lastmod>2026-01-21</lastmod>
+    </url>
+    <url>
+         <loc>https://aerobeat-fitness.github.io/aerobeat-docs/api/inputs/mediapipe_python/</loc>
+         <lastmod>2026-01-21</lastmod>
+    </url>
+    <url>
+         <loc>https://aerobeat-fitness.github.io/aerobeat-docs/api/inputs/mouse/</loc>
+         <lastmod>2026-01-21</lastmod>
+    </url>
+    <url>
+         <loc>https://aerobeat-fitness.github.io/aerobeat-docs/api/inputs/touch/</loc>
+         <lastmod>2026-01-21</lastmod>
+    </url>
+    <url>
          <loc>https://aerobeat-fitness.github.io/aerobeat-docs/architecture/architecture/</loc>
          <lastmod>2026-01-21</lastmod>
     </url>
@@ -86,6 +130,10 @@
     </url>
     <url>
          <loc>https://aerobeat-fitness.github.io/aerobeat-docs/licensing/overview/</loc>
+         <lastmod>2026-01-21</lastmod>
+    </url>
+    <url>
+         <loc>https://aerobeat-fitness.github.io/aerobeat-docs/releases/changelog/</loc>
          <lastmod>2026-01-21</lastmod>
     </url>
 </urlset>
