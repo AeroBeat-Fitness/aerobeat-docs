@@ -47,6 +47,7 @@ nav:
     - Code of Conduct: CODE_OF_CONDUCT.md
   - Release Notes: releases/changelog.md
   - Guides:
+    - Contributing Workflow: guides/contributing_workflow.md
     - Calibration Wizard: guides/calibration.md
     - Modding Quickstart: guides/modding_quickstart.md
     - Choreography:

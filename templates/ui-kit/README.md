@@ -3,7 +3,7 @@
 This is a **Visual Component Library** for the AeroBeat platform.
 
 *   **License:** MPL 2.0
-*   **Role:** Provides themed Atoms (Buttons) and Molecules (Cards).
+*   **Role:** Provides themed Atoms (ex: Buttons) and Molecules (ex: Cards).
 *   **Dependencies:** `aerobeat-ui-core` (Logic).
 
 ## Setup

@@ -26,6 +26,14 @@ To develop Features in isolation:
 * **Inheritance:** Artists inherit `res://templates/base_target.tscn` (from Feature) to create skins.
 * **Single Dependency:** An Asset Package may only depend on **one** Feature. Shared assets must move to `aerobeat-asset-*-common`.
 
+### Versioning (plugin.cfg)
+
+All modular repositories (Features, Assets, UI Kits, Input Drivers) must contain a `plugin.cfg` manifest. When releasing updates:
+
+1.  **Open `plugin.cfg`:** Located at the repository root.
+2.  **Update Version:** Increment the `version="x.y.z"` field following Semantic Versioning.
+3.  **Git Tag:** Create a git tag matching this version (e.g., `v1.2.0`). This allows the Assembly and UI Shells to lock dependencies to stable releases.
+
 ---
 
 ## Internal Assets & UGC Strategy

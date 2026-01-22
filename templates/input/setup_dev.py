@@ -17,27 +17,22 @@ def create_symlink(src, dst):
         subprocess.run(f'mklink /J "{dst_abs}" "{src_abs}"', shell=True)
 
 def main():
-    print("🖥️ Setting up UI Shell Testbed...")
+    print("🔌 Setting up Input Driver Testbed...")
     
-    # Shells run inside .testbed/
+    # Drivers run inside .testbed/
     target_dir = ".testbed/addons"
     
     if not os.path.exists(target_dir):
         os.makedirs(target_dir)
         
-    # Clone Core
+    # Clone Core into the testbed
     if not os.path.exists(f"{target_dir}/aerobeat-core"):
-        print("  + Cloning Core...")
+        print("  + Cloning Core into Testbed...")
         subprocess.run(["git", "clone", "https://github.com/AeroBeat-Fitness/aerobeat-core.git", f"{target_dir}/aerobeat-core"])
 
-    # Clone UI Core
-    if not os.path.exists(f"{target_dir}/aerobeat-ui-core"):
-        print("  + Cloning UI Core...")
-        subprocess.run(["git", "clone", "https://github.com/AeroBeat-Fitness/aerobeat-ui-core.git", f"{target_dir}/aerobeat-ui-core"])
-
-    # Clone GUT
+    # Clone GUT (Required for Testing)
     if not os.path.exists(f"{target_dir}/gut"):
-        print("  + Cloning GUT...")
+        print("  + Cloning GUT into Testbed...")
         subprocess.run(["git", "clone", "https://github.com/bitwes/Gut.git", f"{target_dir}/gut"])
 
     # Symlink Source & Tests

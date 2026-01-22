@@ -35,8 +35,16 @@ foreach ($key in $TemplateMap.Keys) {
     if (Test-Path $tempDir) { Remove-Item $tempDir -Recurse -Force }
     New-Item -ItemType Directory -Path $tempDir | Out-Null
 
-    # Copy files
-    Copy-Item -Path "$sourcePath\*" -Destination $tempDir -Recurse -Force
+    # Copy files (Use Get-ChildItem -Force to ensure dotfiles like .gitignore/.github are included)
+    Get-ChildItem -Path $sourcePath -Force | ForEach-Object {
+        $name = $_.Name
+        
+        # Skip local dev artifacts to speed up copy and keep repo clean
+        if ($name -eq "addons" -or $name -eq "__pycache__" -or $name -eq ".DS_Store" -or $name -eq ".git") { return }
+
+        # Copy everything else recursively
+        Copy-Item -Path $_.FullName -Destination $tempDir -Recurse -Force
+    }
 
     # Initialize temporary git repo and push
     Push-Location $tempDir

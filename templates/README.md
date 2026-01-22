@@ -20,13 +20,13 @@ Go to the AeroBeat-Fitness GitHub organization and look for repositories named `
 
 ## Template Types
 
-| Type | Folder | License | Key Files |
-| :--- | :--- | :--- | :--- |
-| **Assembly** | `assembly/` | GPLv3 | `setup_dev.py` |
-| **Feature** | `feature/` | GPLv3 | `.testbed/`, `setup_dev.py` |
-| **Input** | `input/` | MPL 2.0 | `setup_dev.py` |
-| **UI Kit** | `ui-kit/` | MPL 2.0 | `setup_dev.py` |
-| **UI Shell** | `ui-shell/` | GPLv3 | `sync_ui_kit.py`, `setup_dev.py` |
-| **Asset** | `asset/` | CC BY-NC 4.0 | `setup_dev.py`, `LICENSE` |
+| Type | Folder | License | Project Location | Key Files |
+| :--- | :--- | :--- | :--- | :--- |
+| **Assembly** | `assembly/` | GPLv3 | **Root** | `project.godot`, `.gitignore`, `setup_dev.py` |
+| **Feature** | `feature/` | GPLv3 | `.testbed/` | `plugin.cfg`, `.gitignore`, `.testbed/`, `setup_dev.py` |
+| **Input** | `input/` | MPL 2.0 | `.testbed/` | `plugin.cfg`, `.gitignore`, `setup_dev.py` |
+| **UI Kit** | `ui-kit/` | MPL 2.0 | `.testbed/` | `plugin.cfg`, `.gitignore`, `setup_dev.py` |
+| **UI Shell** | `ui-shell/` | GPLv3 | `.testbed/` | `plugin.cfg`, `.gitignore`, `sync_ui_kit.py`, `setup_dev.py` |
+| **Asset** | `asset/` | CC BY-NC 4.0 | `.testbed/` | `plugin.cfg`, `.gitignore`, `setup_dev.py`, `LICENSE` |
 
 > **Note:** All templates include the `.github/workflows/cla.yml` workflow automatically.
