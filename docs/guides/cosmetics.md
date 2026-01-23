@@ -1,6 +1,6 @@
 # Creating Custom Cosmetics
 
-In AeroBeat, "Cosmetics" allow athletes to personalize their equipment. This guide covers creating custom **Boxing Gloves** and **Targets**.
+In AeroBeat, "Cosmetics" allow athletes to personalize their gameplay equipment. This guide covers creating custom **Boxing Gloves**, **Targets**, and **Obstacles**.
 
 ## 🛠️ The Cosmetics SDK
 

@@ -74,6 +74,15 @@ A Coaching Pack is a collection of media files designed to wrap around a specifi
 *   **Generic vs. Specific:** Since you are coaching a specific *Playlist*, you can reference the specific songs ("I love this guitar solo!"). This creates a much deeper immersion than generic "Good job" lines.
 *   **Audio Ducking:** The game engine automatically "ducks" (lowers) the music volume slightly when your voice track is speaking. You don't need to mix this yourself.
 
+## ♿ Coaching Modifications
+
+Not every athlete can perform high-impact moves. It is important to acknowledge this and offer alternatives.
+
+*   **Knee Strikes:** These are heavy movements. Emphasize them, but remind athletes that if they cannot perform the impact, they can swap the action for a **Guard/Block** or **Crunch**.
+    *   *Why this works:* In Boxing mode, the game tracks the **Head Position** relative to the target lane rather than the physical leg. As long as the athlete shifts their weight (head) to the correct position where they *would* be if they lifted their knee, the hit will register.
+*   **Obstacles (Walls/Bars):** Remind athletes that the game only tracks their **Head** for collisions. They do not need to contort their entire body to avoid a wall, just their head. This prevents over-extension and injury.
+*   **Flow - Leg Lifts & Run In Place:** These are high-intensity fitness intervals. Remind athletes that the specific leg movement is not scored. If they cannot perform the action safely, they should modify it (e.g., a small lift or a stretch) rather than risking injury. Safety is the priority.
+
 ## ❓ Coaching FAQ
 
 **Q: Can I use Green Screen (Chroma Key) video?**

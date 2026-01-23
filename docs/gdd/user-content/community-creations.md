@@ -24,8 +24,9 @@ When creating a `playlist`, a creator uses our in-game community content browser
 * **Assets:** - Optional: Change the recommended visuals such as `targets`, `obstacles`, `portals`, and `hands`.
 * **Coaching:** - Optional: Select a **Coaching Pack** to apply warm-up/cool-down videos and per-song audio overlays.
 
-When choosing any playlist (official or community created), athletes can override the following.
+When choosing any playlist (official or community created), athletes can override the suggestions using their **Profile Preferences**.
 
-* **Environment:** - Disable custom environments from being used, instead using your preferred settings in your profile.
-* **Assets:** - Disable custom assets from being used, instead using your preferred settings in your profile.
+* **Avatars:** - Your avatar is your identity. It is set in your profile and persists across all playlists.
+* **Environment:** - Playlists often suggest immersive environments. You can override this to always use your "Preferred Environment" (e.g., a simple dark void) if the suggested one is distracting.
+* **Cosmetics:** - Playlists may suggest themed gloves or targets. You can override this to stick with your "Preferred Cosmetics" (e.g., high-contrast targets) for visibility or comfort.
 * **Coaching:** - Disable all coaching material from playing.

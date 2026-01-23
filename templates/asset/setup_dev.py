@@ -26,7 +26,7 @@ def main():
     # Clone Core (Required for Resource definitions like AeroSkin, AeroSong)
     if not os.path.exists(f"{target_dir}/aerobeat-core"):
         print("  + Cloning Core...")
-        subprocess.run(["git", "clone", "https://github.com/AeroBeat-Fitness/aerobeat-core.git", f"{target_dir}/aerobeat-core"])
+        subprocess.run(["git", "clone", "https://github.com/AeroBeat-Workouts/aerobeat-core.git", f"{target_dir}/aerobeat-core"])
     else:
         print("  + Core already exists.")
 

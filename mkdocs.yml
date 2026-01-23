@@ -49,6 +49,7 @@ nav:
   - Guides:
     - Contributing Workflow: guides/contributing_workflow.md
     - Calibration Wizard: guides/calibration.md
+    - Accessibility Guide: guides/accessibility.md
     - Modding Quickstart: guides/modding_quickstart.md
     - Choreography:
       - Overview: guides/choreography/overview.md

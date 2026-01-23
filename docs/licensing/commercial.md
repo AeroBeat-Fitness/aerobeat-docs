@@ -1,6 +1,6 @@
 # For Commercial Partners
 
-While our community releases are strictly GPLv3, **AeroBeat-Fitness retains the copyright** to the codebase. This allows us to offer **Dual Licensing** for commercial partners who need to bypass the restrictions of the GPL.
+While our community releases are strictly GPLv3, **AeroBeat-Workouts retains the copyright** to the codebase. This allows us to offer **Dual Licensing** for commercial partners who need to bypass the restrictions of the GPL.
 
 ## Dual Licensing Strategy
 
@@ -19,7 +19,7 @@ Dual Licensing means the same code is available under two different licenses:
 
 ### How it Works
 
-Because all contributors sign a **Contributor License Agreement (CLA)**, AeroBeat-Fitness has the legal right to re-license the codebase.
+Because all contributors sign a **Contributor License Agreement (CLA)**, AeroBeat-Workouts has the legal right to re-license the codebase.
 
 1.  **Contact Us:** Reach out to discuss your project scope.
 2.  **License Grant:** We provide a specific license grant for the repositories you need (e.g., `aerobeat-assembly-*`, `aerobeat-ui-shell-*`).

@@ -8,7 +8,7 @@
 
 **Language:** GDScript (Primary), Python (CV Sidecar)
 
-**Organization:** AeroBeat-Fitness
+**Organization:** AeroBeat-Workouts
 
 ## Executive Summary
 

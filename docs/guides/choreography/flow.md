@@ -28,6 +28,9 @@ Arcs are visual trails that connect two targets or extend from a target into emp
 
 ### Obstacles (Movement)
 Obstacles work similarly to Boxing (forcing squats and leans), but Flow includes specialized fitness prefabs:
+
+> **Tracking Note:** Collision is determined solely by the player's **Head** position.
+
 *   **Leg Lifts:** Triangular shapes that force the player to lift a leg (Left or Right) horizontally while balancing.
 *   **Run In Place:** A rapid sequence of obstacles requiring a running motion.
 *   **Blade Avoidance:** Your bats can pass through obstacles (penalizing score), so map them to guide arm position.

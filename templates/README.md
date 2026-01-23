@@ -16,7 +16,7 @@ This folder is the **Source of Truth** for our GitHub Template Repositories. We 
 
 ### How to Use (For Developers)
 
-Go to the AeroBeat-Fitness GitHub organization and look for repositories named `aerobeat-template-*`. Click the green **"Use this template"** button to start a new project.
+Go to the AeroBeat-Workouts GitHub organization and look for repositories named `aerobeat-template-*`. Click the green **"Use this template"** button to start a new project.
 
 ## Template Types
 
@@ -28,5 +28,8 @@ Go to the AeroBeat-Fitness GitHub organization and look for repositories named `
 | **UI Kit** | `ui-kit/` | MPL 2.0 | `.testbed/` | `plugin.cfg`, `.gitignore`, `setup_dev.py` |
 | **UI Shell** | `ui-shell/` | GPLv3 | `.testbed/` | `plugin.cfg`, `.gitignore`, `sync_ui_kit.py`, `setup_dev.py` |
 | **Asset** | `asset/` | CC BY-NC 4.0 | `.testbed/` | `plugin.cfg`, `.gitignore`, `setup_dev.py`, `LICENSE` |
+| **SDK: Cosmetics** | `sdk-cosmetics/` | CC BY-NC 4.0 | `.testbed/` | `plugin.cfg`, `setup_dev.py`, `AeroGlove.gd` |
+| **SDK: Avatars** | `sdk-avatars/` | CC BY-NC 4.0 | `.testbed/` | `plugin.cfg`, `setup_dev.py`, `AeroAvatar.gd` |
+| **SDK: Environment** | `sdk-environment/` | CC BY-NC 4.0 | `.testbed/` | `plugin.cfg`, `setup_dev.py`, `AeroEnvironment.gd` |
 
 > **Note:** All templates include the `.github/workflows/cla.yml` workflow automatically.

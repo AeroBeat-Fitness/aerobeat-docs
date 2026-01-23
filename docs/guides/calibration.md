@@ -49,6 +49,13 @@ Once AV sync is set, you may need to calibrate your specific controller.
 
 *   **Surface Area:** On tablets, you may want to restrict the active input area to the bottom half of the screen for comfort.
 
+### 🪑 Seated Play
+
+If you are playing from a wheelchair or a chair:
+
+*   **Camera:** Perform the **T-Pose Calibration** while seated. The engine uses your head position relative to the frame to determine the "High" and "Low" target rows.
+*   **VR:** Use the "Recenter" function while seated. This sets your current head height as the "Standard" height, ensuring targets fly at your chest level rather than over your head.
+
 ---
 
 ## 3. Troubleshooting

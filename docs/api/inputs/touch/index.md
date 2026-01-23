@@ -4,4 +4,4 @@
 
 This module has not been documented yet.
 
-View the source code on GitHub: [https://github.com/AeroBeat-Fitness/aerobeat-input-touch](https://github.com/AeroBeat-Fitness/aerobeat-input-touch)
+View the source code on GitHub: [https://github.com/AeroBeat-Workouts/aerobeat-input-touch](https://github.com/AeroBeat-Workouts/aerobeat-input-touch)

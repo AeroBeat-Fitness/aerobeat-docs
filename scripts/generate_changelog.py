@@ -4,7 +4,7 @@ import urllib.request
 import urllib.error
 
 # Configuration
-REPO = "AeroBeat-Fitness/aerobeat-assembly-community" # The main game client
+REPO = "AeroBeat-Workouts/aerobeat-assembly-community" # The main game client
 OUTPUT_FILE = "docs/releases/changelog.md"
 
 def main():

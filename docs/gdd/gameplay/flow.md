@@ -19,9 +19,9 @@ The "Flow" module focuses on large, continuous movements using virtual bats. It 
 
 ### Obstacles & Fitness Prefabs
 Obstacles in Flow work similarly to Boxing but include specialized fitness movements:
-*   **Walls/Bars:** Force squats and leans.
-*   **Leg Lifts:** Triangular obstacles requiring the athlete to lift one leg horizontally while balancing.
-*   **Run In Place:** Rapid sequences of obstacles requiring a running motion.
+*   **Walls/Bars:** Force squats and leans. **Note:** Only the **Head** is tracked for collision.
+*   **Leg Lifts:** Triangular obstacles requiring the athlete to lift one leg horizontally while balancing. **Note:** The leg lift itself is not scored, only the head position avoiding the obstacle. Athletes can modify this action for safety.
+*   **Run In Place:** Rapid sequences of obstacles requiring a running motion. **Note:** Safety is priority; athletes can replace this with stretching or low-impact movement if needed.
 *   **Coaching Callouts:** For complex fitness moves (Leg Lifts, Run In Place), coaches are encouraged to verbally prepare the athlete for the weight shift, especially at lower difficulties.
 
 ### Portals

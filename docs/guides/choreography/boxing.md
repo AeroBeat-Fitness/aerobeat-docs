@@ -20,17 +20,37 @@ Boxing is the core gameplay of AeroBeat. A good boxing chart is a conversation b
     *   **Low:** Crouch height (Left/Right).
     *   **Center:** Reserved for **Guard/Block** targets.
 *   **Direction:** The arrow on the target dictates the punch type.
-    *   *Up Arrow:* Uppercut.
-    *   *Down/Side Arrow:* Hook or Cross.
-    *   *Dot:* Jab (Any direction).
+    *   *Up Arrow:* Uppercut (Left or right vertical punch).
+    *   *Side Arrow:* Hook (Left or right horizontal punch).
+    *   *Dot:* Jab Or Cross (Left or right hand forward punch).
 
 ### Obstacles (Movement)
 
 Obstacles spawn within a specific radius around the active portal, using a separate positioning system to force body movement.
 
+> **Tracking Note:** Collision is determined solely by the player's **Head** position.
+
 *   **Vertical Wall:** Forces a lean (engages core).
 *   **Horizontal Bar:** Forces a squat (engages legs).
 *   **Angled Wall:** Forces a specific body rotation.
+
+### Stance Changes (Form)
+
+Stance indicators appear on the track to guide the athlete's foot placement. While the game does not track feet in Boxing mode, proper stance is critical for power and flow.
+
+*   **Orthodox:** Swap body position so your **Left Foot** is pointing forward.
+*   **Southpaw:** Swap body position so your **Right Foot** is pointing forward.
+
+> **Note:** Failing to change your body to the correct side does not affect your score. It is merely a guide to keep the athlete in proper form for the upcoming choreography, as determined by you (the choreographer).
+
+### Knee Strikes (Legs)
+
+Knee strikes add lower-body intensity to the workout.
+
+*   **Target:** A specific "Knee Target" (Black or White) that appears low in the portal.
+*   **Action:** Lift the corresponding knee (Left=Black, Right=White) to intercept the target.
+*   **Placement:** These should always be placed on the **Bottom Row** of the grid to align with the knee lift height.
+*   **Tracking:** The engine does not track legs in Boxing mode. Instead, it checks if the player's **Head** is horizontally aligned with the target lane. This allows for accessibility modifications (like substituting a Knee Strike for a Block/Crunch).
 
 ## 📐 Mapping Best Practices
 
@@ -57,7 +77,9 @@ When mapping in the Boxing SDK, you can place targets in a 360-degree ring.
 *   **Relative Lanes:** The 5-Zone Grid is always **relative to the Active Portal**. If the player turns 90 degrees right, "Left Arm" is still their physical left hand.
 
 #### Rotation Cues (The Fitness Flow)
+
 Instead of random portal jumps, use the choreography to guide the turn.
+
 *   **The Guide:** Use obstacles and directional punches (Hooks) to force body rotation towards the next target zone. Sequential portals in a single direction also create a strong guiding flow.
 *   **Example:** If the next portal is to the **Right**, end the current phrase with a **Left Hook** or **Right Cross**. This naturally rotates the athlete's torso to the right, setting them up for the new portal.
 *   **Visuals:** Every active portal emits a particle trail flowing towards the player to help them center their stance.

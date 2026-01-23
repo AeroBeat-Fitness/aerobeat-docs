@@ -13,6 +13,6 @@ AeroBeat's "Secret Sauce" is its ability to normalize data from wildly different
 * **Experience:** "Tactile." The athlete holds devices that provide rumble feedback and ultra-low latency tracking.
 * **Pros:** Precision, haptics, "Pro" feel.
 
-### Tier 3: Legacy/Debug
-* **Tech:** Mouse & Keyboard, Gamepads, Touch.
-* **Experience:** Used for testing charts or playing when no other input is capable.
+### Tier 3: Accessibility & Legacy
+* **Tech:** Xbox Adaptive Controller, Gamepads (XInput), Mouse & Keyboard, Touch.
+* **Experience:** Enables play via specialized accessibility hardware, or used for testing charts when no other input is available.

@@ -28,12 +28,12 @@ def main():
     # Clone Core
     if not os.path.exists(f"{target_dir}/aerobeat-core"):
         print("  + Cloning Core...")
-        subprocess.run(["git", "clone", "https://github.com/AeroBeat-Fitness/aerobeat-core.git", f"{target_dir}/aerobeat-core"])
+        subprocess.run(["git", "clone", "https://github.com/AeroBeat-Workouts/aerobeat-core.git", f"{target_dir}/aerobeat-core"])
 
     # Clone UI Core
     if not os.path.exists(f"{target_dir}/aerobeat-ui-core"):
         print("  + Cloning UI Core...")
-        subprocess.run(["git", "clone", "https://github.com/AeroBeat-Fitness/aerobeat-ui-core.git", f"{target_dir}/aerobeat-ui-core"])
+        subprocess.run(["git", "clone", "https://github.com/AeroBeat-Workouts/aerobeat-ui-core.git", f"{target_dir}/aerobeat-ui-core"])
 
     # Clone GUT
     if not os.path.exists(f"{target_dir}/gut"):

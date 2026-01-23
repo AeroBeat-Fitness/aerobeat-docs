@@ -4,47 +4,47 @@ import os
 PLACEHOLDERS = {
     "docs/api/core": {
         "title": "Core Contracts",
-        "repo": "https://github.com/AeroBeat-Fitness/aerobeat-core"
+        "repo": "https://github.com/AeroBeat-Workouts/aerobeat-core"
     },
     "docs/api/assembly": {
         "title": "Assembly (Community)",
-        "repo": "https://github.com/AeroBeat-Fitness/aerobeat-assembly-community"
+        "repo": "https://github.com/AeroBeat-Workouts/aerobeat-assembly-community"
     },
     "docs/api/features/boxing": {
         "title": "Boxing Feature",
-        "repo": "https://github.com/AeroBeat-Fitness/aerobeat-feature-boxing"
+        "repo": "https://github.com/AeroBeat-Workouts/aerobeat-feature-boxing"
     },
     "docs/api/inputs/keyboard": {
         "title": "Keyboard Input",
-        "repo": "https://github.com/AeroBeat-Fitness/aerobeat-input-keyboard"
+        "repo": "https://github.com/AeroBeat-Workouts/aerobeat-input-keyboard"
     },
     "docs/api/inputs/mouse": {
         "title": "Mouse Input",
-        "repo": "https://github.com/AeroBeat-Fitness/aerobeat-input-mouse"
+        "repo": "https://github.com/AeroBeat-Workouts/aerobeat-input-mouse"
     },
     "docs/api/inputs/touch": {
         "title": "Touch Input",
-        "repo": "https://github.com/AeroBeat-Fitness/aerobeat-input-touch"
+        "repo": "https://github.com/AeroBeat-Workouts/aerobeat-input-touch"
     },
     "docs/api/inputs/gamepad": {
         "title": "Gamepad Input",
-        "repo": "https://github.com/AeroBeat-Fitness/aerobeat-input-gamepad"
+        "repo": "https://github.com/AeroBeat-Workouts/aerobeat-input-gamepad"
     },
     "docs/api/inputs/mediapipe_python": {
         "title": "MediaPipe Python Input",
-        "repo": "https://github.com/AeroBeat-Fitness/aerobeat-input-mediapipe-python"
+        "repo": "https://github.com/AeroBeat-Workouts/aerobeat-input-mediapipe-python"
     },
     "docs/api/inputs/mediapipe_native": {
         "title": "MediaPipe Native Input",
-        "repo": "https://github.com/AeroBeat-Fitness/aerobeat-input-mediapipe-native"
+        "repo": "https://github.com/AeroBeat-Workouts/aerobeat-input-mediapipe-native"
     },
     "docs/api/inputs/joycon": {
         "title": "Joycon Input",
-        "repo": "https://github.com/AeroBeat-Fitness/aerobeat-input-joycon-hid"
+        "repo": "https://github.com/AeroBeat-Workouts/aerobeat-input-joycon-hid"
     },
     "docs/api/assets/prototypes": {
         "title": "Prototype Assets",
-        "repo": "https://github.com/AeroBeat-Fitness/aerobeat-asset-prototypes"
+        "repo": "https://github.com/AeroBeat-Workouts/aerobeat-asset-prototypes"
     }
 }
 

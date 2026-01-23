@@ -26,9 +26,13 @@ The debut gameplay module for AeroBeat is a rhythm-boxing experience.
 
 ### Full Mechanics
 * **Reward Targets:** These targets explode to reveal `confetti` particles, paired with a `reward` sound effect. Can be hit by either `hand`.
-* **Obstacles:** Orange lines that force the athlete to Squat (Legs) or Lean (Core), or both. Counts as hitting a target if you dodge these with your `head`, otherwise it counts as a `miss`. There are many obstacle types in the forms of multiple lines at different angles, or hollow shapes and patterns.
-* **Stance Changes:** At the start of a song and throughout, athletes may have to swap stances (Orthodox or Southpaw) which effects their real-world leg position and ability to throw quick punches from a cetain hand. This is not tracked by gameplay and is purely as a recommendation from the choreographer or coach.
+* **Obstacles:** Orange lines that force the athlete to Squat (Legs) or Lean (Core), or both. Counts as hitting a target if you dodge these with your `head`, otherwise it counts as a `miss`. **Note:** Only the head is tracked for collision. Athletes should be reminded not to over-extend their body, as moving just the head is sufficient to clear the obstacle.
+* **Stance Changes:** Stance indicators appear on the track to guide the athlete's foot placement. While the game does not track feet in Boxing mode, proper stance is critical for power and flow.
+    *   **Orthodox:** Swap body position so your **Left Foot** is pointing forward.
+    *   **Southpaw:** Swap body position so your **Right Foot** is pointing forward.
+    *   **Note:** Failing to change your body to the correct side does not affect your score. It is merely a guide to keep the athlete in proper form for the upcoming choreography.
 * **Knee Strikes:** Lift your left or right knee at the right time to hit the black or white knee strike target. Always appears physically low in the portal.
+    *   **Tracking:** Detected by checking the horizontal alignment of the player's **Head** relative to the target lane, inferring a weight shift. This allows players to substitute the move for a Block or Crunch if unable to perform high-impact leg lifts.
 * **Leg Lifts:** Lift your left or right leg horizontally at the right time to match the shape of the obstacles flying at you. Counts as if a `obstacle` hit you if your `head` touches the side of the `obstacle` shape. (ex: a triangle that extends far to the left, signifying a left leg lift).
 * **Run In Place:** Rings of obstacles fly at the athlete rapidly. Signifies an an optional run-in-place segment for the athlete.
 * **360-Portal-View:** Portals can appear within a full 360 ring around you. New portals open up requiring VR players to face them by rotating their body and head. Controller players use L1/R1, DPAD, or Control Sticks to snap to portal positions. Camera players are automatically rotated to face them. If too many portals appear too quickly, the 2D players see targets and obstacles appear from the same portal to avoid snap-fatique and visual problems reading the choreography.

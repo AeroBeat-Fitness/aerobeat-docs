@@ -64,6 +64,17 @@ Before committing AI-generated code, verify these common "AI lazy" habits:
 
 ---
 
+## 🔄 Repo-Wide Refactoring
+
+AI context windows are limited. You cannot paste the entire repository into a prompt.
+
+**Strategy:**
+1.  **Ask for a Script:** Instead of asking the AI to *do* the change, ask it to *write a Python/Shell script* to do the change.
+    *   *Prompt:* "Write a python script that walks through `src/` and renames all instances of `AeroWorkouts` to `AeroFitness`."
+2.  **Iterative Approach:** Use the `AI_MANIFEST` to identify relevant files, then ask the AI to update them batch by batch.
+
+---
+
 ## 🛠️ Tool-Specific Setup
 
 ### For Cursor (IDE)

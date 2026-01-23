@@ -10,7 +10,7 @@ This is the official template for creating an **Asset Pack** repository within t
 *   **License:** **CC BY-NC 4.0** (Attribution-NonCommercial)
 *   **Constraints:**
     *   **NO CODE ALLOWED:** You cannot include `.gd` scripts or compiled binaries in this repository.
-    *   **Attribution Required:** You must credit AeroBeat-Fitness if you modify existing assets.
+    *   **Attribution Required:** You must credit AeroBeat-Workouts if you modify existing assets.
     *   **Scope:** An asset pack should target **Core** (Generic) or **One Feature** (Specific). Do not mix assets for different gameplay features in one repo.
 
 ## 🚀 Getting Started

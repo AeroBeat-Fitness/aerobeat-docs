@@ -4,4 +4,4 @@
 
 This module has not been documented yet.
 
-View the source code on GitHub: [https://github.com/AeroBeat-Fitness/aerobeat-core](https://github.com/AeroBeat-Fitness/aerobeat-core)
+View the source code on GitHub: [https://github.com/AeroBeat-Workouts/aerobeat-core](https://github.com/AeroBeat-Workouts/aerobeat-core)
