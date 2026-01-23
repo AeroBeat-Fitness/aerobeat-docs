@@ -695,6 +695,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../accessibility/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accessibility Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../modding_quickstart/" class="md-nav__link">
         
   
@@ -733,10 +761,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
             
   
   
@@ -754,8 +782,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_4_4">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_5">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -898,6 +926,28 @@
     <span class="md-ellipsis">
       
         Obstacles (Movement)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stance-changes-form" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stance Changes (Form)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#knee-strikes-legs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Knee Strikes (Legs)
       
     </span>
   </a>
@@ -4116,6 +4166,28 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#stance-changes-form" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stance Changes (Form)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#knee-strikes-legs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Knee Strikes (Legs)
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4281,18 +4353,38 @@
 </ul>
 </li>
 <li><strong>Direction:</strong> The arrow on the target dictates the punch type.<ul>
-<li><em>Up Arrow:</em> Uppercut.</li>
-<li><em>Down/Side Arrow:</em> Hook or Cross.</li>
-<li><em>Dot:</em> Jab (Any direction).</li>
+<li><em>Up Arrow:</em> Uppercut (Left or right vertical punch).</li>
+<li><em>Side Arrow:</em> Hook (Left or right horizontal punch).</li>
+<li><em>Dot:</em> Jab Or Cross (Left or right hand forward punch).</li>
 </ul>
 </li>
 </ul>
 <h3 id="obstacles-movement">Obstacles (Movement)<a class="headerlink" href="#obstacles-movement" title="Permanent link">&para;</a></h3>
 <p>Obstacles spawn within a specific radius around the active portal, using a separate positioning system to force body movement.</p>
+<blockquote>
+<p><strong>Tracking Note:</strong> Collision is determined solely by the player's <strong>Head</strong> position.</p>
+</blockquote>
 <ul>
 <li><strong>Vertical Wall:</strong> Forces a lean (engages core).</li>
 <li><strong>Horizontal Bar:</strong> Forces a squat (engages legs).</li>
 <li><strong>Angled Wall:</strong> Forces a specific body rotation.</li>
+</ul>
+<h3 id="stance-changes-form">Stance Changes (Form)<a class="headerlink" href="#stance-changes-form" title="Permanent link">&para;</a></h3>
+<p>Stance indicators appear on the track to guide the athlete's foot placement. While the game does not track feet in Boxing mode, proper stance is critical for power and flow.</p>
+<ul>
+<li><strong>Orthodox:</strong> Swap body position so your <strong>Left Foot</strong> is pointing forward.</li>
+<li><strong>Southpaw:</strong> Swap body position so your <strong>Right Foot</strong> is pointing forward.</li>
+</ul>
+<blockquote>
+<p><strong>Note:</strong> Failing to change your body to the correct side does not affect your score. It is merely a guide to keep the athlete in proper form for the upcoming choreography, as determined by you (the choreographer).</p>
+</blockquote>
+<h3 id="knee-strikes-legs">Knee Strikes (Legs)<a class="headerlink" href="#knee-strikes-legs" title="Permanent link">&para;</a></h3>
+<p>Knee strikes add lower-body intensity to the workout.</p>
+<ul>
+<li><strong>Target:</strong> A specific "Knee Target" (Black or White) that appears low in the portal.</li>
+<li><strong>Action:</strong> Lift the corresponding knee (Left=Black, Right=White) to intercept the target.</li>
+<li><strong>Placement:</strong> These should always be placed on the <strong>Bottom Row</strong> of the grid to align with the knee lift height.</li>
+<li><strong>Tracking:</strong> The engine does not track legs in Boxing mode. Instead, it checks if the player's <strong>Head</strong> is horizontally aligned with the target lane. This allows for accessibility modifications (like substituting a Knee Strike for a Block/Crunch).</li>
 </ul>
 <h2 id="mapping-best-practices">📐 Mapping Best Practices<a class="headerlink" href="#mapping-best-practices" title="Permanent link">&para;</a></h2>
 <h3 id="1-flow-parity">1. Flow &amp; Parity<a class="headerlink" href="#1-flow-parity" title="Permanent link">&para;</a></h3>
@@ -4316,10 +4408,12 @@
 <li><strong>Relative Lanes:</strong> The 5-Zone Grid is always <strong>relative to the Active Portal</strong>. If the player turns 90 degrees right, "Left Arm" is still their physical left hand.</li>
 </ul>
 <h4 id="rotation-cues-the-fitness-flow">Rotation Cues (The Fitness Flow)<a class="headerlink" href="#rotation-cues-the-fitness-flow" title="Permanent link">&para;</a></h4>
-<p>Instead of random portal jumps, use the choreography to guide the turn.
-*   <strong>The Guide:</strong> Use obstacles and directional punches (Hooks) to force body rotation towards the next target zone. Sequential portals in a single direction also create a strong guiding flow.
-*   <strong>Example:</strong> If the next portal is to the <strong>Right</strong>, end the current phrase with a <strong>Left Hook</strong> or <strong>Right Cross</strong>. This naturally rotates the athlete's torso to the right, setting them up for the new portal.
-*   <strong>Visuals:</strong> Every active portal emits a particle trail flowing towards the player to help them center their stance.</p>
+<p>Instead of random portal jumps, use the choreography to guide the turn.</p>
+<ul>
+<li><strong>The Guide:</strong> Use obstacles and directional punches (Hooks) to force body rotation towards the next target zone. Sequential portals in a single direction also create a strong guiding flow.</li>
+<li><strong>Example:</strong> If the next portal is to the <strong>Right</strong>, end the current phrase with a <strong>Left Hook</strong> or <strong>Right Cross</strong>. This naturally rotates the athlete's torso to the right, setting them up for the new portal.</li>
+<li><strong>Visuals:</strong> Every active portal emits a particle trail flowing towards the player to help them center their stance.</li>
+</ul>
 <blockquote>
 <p><strong>Note:</strong> <strong>Simultaneous Portals</strong> (targets coming from multiple directions) are a valid mechanic for high-intensity "Pro" charts, but use them sparingly to maintain flow.</p>
 </blockquote>
@@ -4385,7 +4479,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 22, 2026 23:06:16 UTC">January 22, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 23, 2026 03:19:55 UTC">January 23, 2026</span>
   </span>
 
     
