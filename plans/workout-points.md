@@ -73,7 +73,7 @@ Add persistence for the wallet and inventory.
 
 **2. Post-Workout Screen**
 
-*   Add a "Currency Gained" animation counting up the WP earned alongside the Calorie counter.
+*   Add a "Currency Gained" animation counting up the WP earned.
 
 ## 4. Risk Analysis & Mitigation
 
@@ -85,12 +85,22 @@ Add persistence for the wallet and inventory.
 | **UGC Conflicts** | A modder releases a "Free" version of a "Legendary" paid skin. | **ID Namespacing.** Official items use `aerobeat.official.*`. UGC uses `aerobeat.ugc.*`. The Shop only lists Official items. UGC is always free/unlocked but separated in the UI. |
 | **"Pay-to-Win"** | Cosmetics obscure vision or change hitboxes. | **Strict Validation.** The `aerobeat-cosmetics` template must enforce bounding box limits. The game engine will force-unload cosmetics that exceed polycount or volume limits during gameplay. |
 
-## 5. Execution Checklist
+## 5. Online-Only Policy
+
+To prevent local save editing and ensure economy integrity, the WP system is **Server-Authoritative**.
+
+*   **No Offline Earning:** If an athlete plays offline, they do not earn WP. The client cannot reliably cryptographically sign a workout result without a server handshake.
+*   **No Offline Spending:** The Locker Room requires an active connection to validate the wallet balance and process transactions.
+*   **Truth:** The `AeroUserProfile` on the client is a *cache*. The Server Database is the source of truth.
+
+## 6. Execution Checklist
 
 ### Documentation
-- [ ] Create `docs/gdd/economy/currency.md` detailing the math.
-- [ ] Update `docs/guides/cosmetics.md` with "Setting a Price" instructions.
-- [ ] Update `docs/architecture/state-management.md` with the new UserProfile schema.
+- [x] Create `docs/gdd/economy/currency.md` detailing the math.
+- [x] Include Risk Analysis and Mitigation strategies in `docs/gdd/economy/currency.md`.
+- [x] Update `docs/guides/cosmetics.md` with "Setting a Price" instructions.
+- [x] Update `docs/architecture/state-management.md` with the new UserProfile schema.
+- [x] Update `docs/architecture/security.md` to explicitly state the Online-Only requirement for Economy.
 
 ### Code
 - [ ] **Core:** Update `AeroCosmeticResource` and `AeroUserProfile`.

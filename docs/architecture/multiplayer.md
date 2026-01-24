@@ -38,3 +38,22 @@ Feature Logic must be safe to run on a Linux Headless Server (No GPU/Audio).
 
 * **Forbidden:** Logic scripts calling `$Audio.play()` or `$Particles.emit()`.
 * **Required:** Logic emits `signal hit_confirmed`. A separate `_view_connector.gd` (Client Only) listens and plays FX.
+
+## 4. Supporter Enhancements (Visuals)
+
+To reward Supporters without affecting gameplay balance, we allow visual customization of the multiplayer experience.
+
+### A. Lobby Environment (Host Authority)
+When a player hosts a lobby, they define the visual "Vibe" of the waiting room.
+
+*   **Mechanism:** The Host sends an `RPC_UpdateLobbyEnvironment(environment_id)` upon creation.
+*   **Replication:** All joining clients load the specified `AeroEnvironment` resource (Skybox/Lighting) locally.
+*   **Constraint:** Only "Official" or "Verified" environments can be used to prevent griefing with broken assets.
+
+### B. Entrance FX (Personal Flair)
+When a Supporter joins a session or respawns, a unique visual effect plays.
+
+*   **Data:** `AeroUserState` includes `entrance_fx_id` (String).
+*   **Trigger:** When a new `RemoteAthlete` is instantiated, the client checks this ID.
+*   **Execution:** The client spawns the corresponding particle system from `aerobeat-asset-common` at the avatar's root location.
+*   **Safety:** Clients have a "Disable Remote FX" toggle in settings to prevent performance degradation on low-end devices.

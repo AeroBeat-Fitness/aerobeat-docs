@@ -18,3 +18,29 @@ To support multiplayer without refactoring core logic, we strictly separate **Im
     * **High Frequency (Unreliable):** Avatar Pose (Head/Hands) for visual representation.
     * **Event Based (Reliable):** Score updates, Combo breaks, Health changes.
 * **Rule:** Features write to their Local `AeroUserState`. The Assembly handles replicating this object to other peers.
+
+### The User Profile (Persistent)
+
+* **Class:** `AeroUserProfile` (Core).
+* **Role:** Long-term persistence of player progress, economy, and settings.
+* **Storage:** Saved to disk (`user://profile.res`).
+* **Schema:**
+
+```gdscript
+class_name AeroUserProfile
+extends Resource
+
+# Economy
+@export var wallet_balance: int = 0
+@export var unlocked_cosmetics: Array[String] = [] # List of Resource IDs
+
+# Gamification
+@export_group("Gamification")
+@export var weekly_goal_days: int = 3
+@export var current_week_stamps: Array[Dictionary] = [] # [{ "date": "2023-10-27", "score": 15000 }]
+@export var weekly_modes_played: Array[String] = [] # ["boxing", "flow"]
+@export var streak_weeks: int = 0
+@export var streak_freezes: int = 0
+@export var last_quest_generation: int = 0 # Unix Timestamp
+@export var active_quests: Array[Resource] = []
+```

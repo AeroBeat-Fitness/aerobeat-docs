@@ -47,6 +47,31 @@ Since AeroBeat uses a "Client Authority" model for rhythm scoring (to eliminate 
 *   **Device Fingerprinting:** We generate a unique hardware hash (`device_id`) to enforce bans. If a user is banned for cheating, reinstalling the game will not reset their status.
 *   **Replay Analysis:** (Future Roadmap) For high-stakes leaderboards, the client uploads a lightweight input replay. The server re-simulates the session to verify the score matches the inputs.
 
+## 5. Economy Integrity (Online-Only Policy)
+
+To prevent local save editing and ensure the integrity of the "Workout Points" (WP) economy, the system is **Server-Authoritative**.
+
+*   **No Offline Earning:** If an athlete plays offline, they do not earn WP. The client cannot reliably cryptographically sign a workout result without a server handshake.
+*   **No Offline Spending:** The Locker Room requires an active connection to validate the wallet balance and process transactions.
+*   **Truth:** The `AeroUserProfile` on the client is a *cache*. The Server Database is the source of truth.
+
+## 6. Gamification Integrity (Online-Only Policy)
+
+Similar to the Economy, the Gamification system (Streaks, Quests, Weekly Goals) relies on **Server Authority** to prevent date manipulation (e.g., changing the system clock to maintain a streak).
+
+*   **Server Time:** All time-based calculations rely exclusively on Server Time.
+*   **Offline Limitations:** Workouts completed offline do not count towards Quests, Streaks, or Weekly Goals.
+
+## 7. Health Data Privacy (GDPR & HIPAA)
+
+The "Connected Athlete" feature allows Supporters to sync workout data to external platforms (Strava, Apple Health). Because health data is highly sensitive, we enforce a **Zero-Persistence Policy**.
+
+*   **Client-Side Sync (Preferred):** Where possible (e.g., Apple HealthKit on iOS, Health Connect on Android), synchronization happens directly from the Client Device to the OS API. This data never touches AeroBeat servers.
+*   **Server-Side Sync (Transient):** For web-based APIs (e.g., Strava), the client sends a signed workout summary to our backend.
+    *   **Transient Processing:** The server immediately forwards the payload to the external provider.
+    *   **No Storage:** We do **not** store heart rate, weight, or biometric data in our database. We only store the "Result" (Calories Burned, Duration) required for the Leaderboard.
+*   **Consent:** Explicit, granular consent is required to enable any health integration. This consent can be revoked at any time via the Profile settings.
+
 ---
 
-> **Note:** Security is an ongoing process. Vulnerabilities should be reported privately to `security@aerobeat.fitness`.
+> **Note:** Security is an ongoing process. Vulnerabilities should be reported privately to `aerobeat-workouts@gmail.com`.

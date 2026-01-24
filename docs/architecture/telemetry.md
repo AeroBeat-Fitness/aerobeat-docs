@@ -46,3 +46,19 @@ When a user creates an account, we collect additional data to provide cloud serv
     *   **Guests:** Since guest data is not linked to PII (Personally Identifiable Information) like email, it naturally expires from our Redis cache when the session TTL ends, unless the device is banned for abuse.
     *   **Verified:** Users can request full account deletion via the settings menu.
 *   **Data Minimization:** We do not collect microphone audio or camera feeds. All Computer Vision processing happens **locally** on the device; only the resulting "Input Events" (e.g., "Punch Detected") are processed by the game logic.
+
+## 4. Data Retention Policies (Advanced Analytics)
+
+To support the "Advanced Analytics" features for Supporters while managing storage costs, we enforce tiered retention policies.
+
+### A. Workout History (Logs)
+*   **Free Athletes:** We retain a rolling window of the last **50 sessions**. Older logs are soft-deleted.
+    *   *Note:* The client UI only displays the last 10 sessions to free users. The extra 40 are kept to provide immediate value if the user upgrades to Supporter status.
+*   **Supporters:** We retain **Unlimited** workout history while the Supporter status is active.
+    *   *Lapse Policy:* If a Supporter status lapses, data is not immediately deleted. It enters a "Frozen" state for 1 year before reverting to the Free Tier retention policy.
+
+### B. Granular Hit Data (Heatmaps)
+To generate "Accuracy Heatmaps" (e.g., "You miss low-left targets"), we collect granular hit data `( view_type, lane_id, hit_offset_ms, hit_position_xy)`.
+
+*   **Raw Data:** Stored transiently and deleted after **7 days**.
+*   **Aggregates:** Raw data is processed into **Monthly Aggregates** (e.g., "Lane 1 Accuracy: 85%") nightly. These aggregates are retained indefinitely for Supporters to visualize long-term trends.

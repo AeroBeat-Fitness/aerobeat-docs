@@ -61,6 +61,9 @@ Cosmetics attach to specific bones on the standard **Humanoid Skeleton**. When y
 2.  **Assign Mesh:** Drag your imported `.glb` into the `mesh_visual` slot.
 3.  **Select Socket:** Type the bone name (e.g., `Head`) in the `socket_bone` property.
 4.  **Offsets:** Use `position_offset` and `rotation_offset` to fine-tune the fit without re-exporting the mesh.
+5.  **Economy:** Set the `unlock_cost` (WP) for the item.
+    *   *0 WP:* Free / Default item.
+    *   *Premium:* Check `is_premium` if this item cannot be bought with standard WP (e.g. Event Reward).
 
 ### Phase 4: Validation & Upload
 

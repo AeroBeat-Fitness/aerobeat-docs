@@ -87,3 +87,27 @@ To address specific risks identified in our strategic plan, the UI must support 
         *   **Audio:** Mutes all UGC audio tracks, replacing them with safe, licensed "Streamer Friendly" silence.
         *   **Visuals:** Hides potentially offensive UGC album art or usernames, replacing them with generic placeholders.
     *   **Implementation:** The UI Shell must bind this toggle to the global `AeroSettings` singleton, which the Audio Engine listens to.
+
+## 9. Meta-Game UI Flows
+
+To ensure a seamless experience between the "Game Loop" (Workout) and the "Meta Loop" (Progression), we define specific interaction patterns for the Profile and Locker Room.
+
+### A. The Profile Hub (Overlay Pattern)
+
+The Profile is not a separate "Scene" but a **Modal Overlay** accessible from anywhere in the Main Menu.
+
+*   **Trigger:** Clicking the "Profile Badge" (Top-Right HUD).
+*   **State:** Pauses the underlying menu interaction but keeps the background visible (dimmed).
+*   **Components:**
+    *   `ProfileBadge` (Atom): Displays mini-avatar and level.
+    *   `ProfileHub` (Organism): The modal window containing stats and settings.
+
+### B. The Locker Room (Scene Transition)
+Unlike the Profile, the Locker Room requires a full scene transition to load the high-fidelity 3D environment for the Avatar.
+
+*   **Trigger:** "Edit Avatar" button in Profile Hub or Main Menu.
+*   **Transition:** Fade to Black -> Load `LockerRoom.tscn`.
+*   **Interaction Model:**
+    *   **Preview First:** Clicking an item equips it *visually* but not *logically*.
+    *   **Hold-to-Buy:** Purchasing requires a 1.0s hold interaction to prevent accidental WP spending.
+    *   **Gizmo Mode:** A dedicated sub-state for adjusting accessory offsets.

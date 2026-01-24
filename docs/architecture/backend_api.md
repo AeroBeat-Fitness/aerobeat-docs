@@ -131,6 +131,39 @@ These endpoints are used by the Game Client (`aerobeat-assembly-*`) to discover 
 *   **Endpoint:** `GET /api/v1/user/library`
 *   **Purpose:** Returns a list of all mods the user has "subscribed" to, allowing the game to auto-download them on a new device.
 
+## 💳 Billing & Supporter Endpoints
+
+These endpoints handle the "Supporter" status transactions. We use a Merchant of Record (e.g., Stripe) to handle actual credit card processing.
+
+### 1. Create Checkout Session
+
+*   **Endpoint:** `POST /api/v1/billing/checkout`
+*   **Auth:** Verified User Only.
+*   **Body:**
+    *   `tier_id`: Enum (`1_month`, `1_year`, etc.) matching the pricing plan.
+*   **Response:**
+    *   `checkout_url`: The URL to redirect the user's browser to (Stripe Hosted Page).
+    *   `session_id`: The transaction ID.
+
+### 2. Webhook Handler (Server-to-Server)
+
+*   **Endpoint:** `POST /api/v1/billing/webhook`
+*   **Auth:** Webhook Signature Verification (Stripe-Signature header).
+*   **Purpose:** Receives asynchronous payment confirmation from the provider.
+*   **Action:**
+    *   Verifies signature.
+    *   Finds user associated with the session.
+    *   Updates `supporter_expiry` timestamp in the database (handling stacking logic).
+
+### 3. Get Supporter Status
+
+*   **Endpoint:** `GET /api/v1/user/status`
+*   **Auth:** Verified User.
+*   **Response:**
+    *   `is_supporter`: Boolean.
+    *   `supporter_expiry`: ISO 8601 Timestamp (or null).
+    *   `active_perks`: List of strings (e.g., `["crew_creation", "extended_history"]`).
+
 ## 📊 Sequence Diagrams
 
 ### Guest Download Flow
