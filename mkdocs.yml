@@ -79,7 +79,6 @@ nav:
       - Step: gdd/gameplay/step.md
       - Dance: gdd/gameplay/dance.md
       - View Modes: gdd/gameplay/view-modes.md
-      - Future Plans: gdd/gameplay/future-plans.md
     - Gamification:
       - Overview: gdd/gamification/overview.md
       - Quests: gdd/gamification/quests.md
@@ -140,5 +139,8 @@ nav:
       - Touch: api/inputs/touch/
     - Features:
       - Boxing: api/features/boxing/
+      - Flow: api/features/flow/
+      - Dance: api/features/dance/
+      - Step: api/features/step/
     - Assets:
       - Prototypes: api/assets/prototypes/
