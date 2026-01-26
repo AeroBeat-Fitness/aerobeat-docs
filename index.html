@@ -5118,85 +5118,154 @@
 </ul>
 <hr />
 <h2 id="repository-ecosystem">📂 Repository Ecosystem<a class="headerlink" href="#repository-ecosystem" title="Permanent link">&para;</a></h2>
-<p>AeroBeat uses a 7-tier repository structure to keep code clean and decoupled.</p>
+<p>AeroBeat uses a 15-tier repository structure to keep code clean and decoupled.</p>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Repository</th>
+<th style="text-align: left;">Tier</th>
+<th style="text-align: left;">Repo Name</th>
 <th style="text-align: left;">Role</th>
+<th style="text-align: left;">Required Deps</th>
+<th style="text-align: left;">Allowed Deps</th>
+<th style="text-align: left;">Dev-Only / Peer Deps</th>
 <th style="text-align: left;">License</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><strong><code>aerobeat-assembly-community</code></strong></td>
-<td style="text-align: left;">The Game Client for the Community Edition of AeroBeat. Builds the executable for the Client and Server.</td>
+<td style="text-align: left;"><strong>Assembly</strong></td>
+<td style="text-align: left;"><code>aerobeat-assembly-*</code></td>
+<td style="text-align: left;"><strong>The Product.</strong> Specific editions (Community, Arcade).</td>
+<td style="text-align: left;">All Active Packages</td>
+<td style="text-align: left;">All Assets</td>
+<td style="text-align: left;">Test Frameworks (Gut)</td>
 <td style="text-align: left;"><strong>GPLv3</strong></td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong><code>aerobeat-core</code></strong></td>
-<td style="text-align: left;">The Engine Hub. Contracts, Signals, and Data Types.</td>
+<td style="text-align: left;"><strong>Core</strong></td>
+<td style="text-align: left;"><code>aerobeat-core</code></td>
+<td style="text-align: left;"><strong>The Hub.</strong> Interfaces, Data Types, Global Constants.</td>
+<td style="text-align: left;"><strong>None</strong></td>
+<td style="text-align: left;"><strong>None</strong></td>
+<td style="text-align: left;">Unit Test Tools</td>
 <td style="text-align: left;"><strong>MPL 2.0</strong></td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong><code>aerobeat-input-*</code></strong></td>
-<td style="text-align: left;">Hardware Drivers (Webcam, VR).</td>
+<td style="text-align: left;"><strong>UI Core</strong></td>
+<td style="text-align: left;"><code>aerobeat-ui-core</code></td>
+<td style="text-align: left;"><strong>UI Logic.</strong> Base classes (ViewModel) for components.</td>
+<td style="text-align: left;"><code>aerobeat-core</code></td>
+<td style="text-align: left;"><strong>None</strong></td>
+<td style="text-align: left;">Unit Test Tools</td>
 <td style="text-align: left;"><strong>MPL 2.0</strong></td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong><code>aerobeat-ui-core</code></strong></td>
-<td style="text-align: left;">UI Logic Layer (ViewModel). Base classes.</td>
-<td style="text-align: left;"><strong>MPL 2.0</strong></td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong><code>aerobeat-tool-*</code></strong></td>
+<td style="text-align: left;"><strong>Tool</strong></td>
+<td style="text-align: left;"><code>aerobeat-tool-*</code></td>
 <td style="text-align: left;"><strong>Services.</strong> Singleton Managers (ex: APIs, Analytics).</td>
+<td style="text-align: left;"><code>aerobeat-core</code></td>
+<td style="text-align: left;">Vendor Utils</td>
+<td style="text-align: left;">Testbed Scaffolding</td>
 <td style="text-align: left;"><strong>MPL 2.0</strong></td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong><code>aerobeat-ui-kit-*</code></strong></td>
-<td style="text-align: left;">Visual Component Libraries (Themed Atoms/Molecules).</td>
+<td style="text-align: left;"><strong>Input</strong></td>
+<td style="text-align: left;"><code>aerobeat-input-*</code></td>
+<td style="text-align: left;"><strong>Hardware Drivers.</strong> (Camera, VR, Watch).</td>
+<td style="text-align: left;"><code>aerobeat-core</code></td>
+<td style="text-align: left;">Vendor SDKs</td>
+<td style="text-align: left;">Testbed Scaffolding</td>
 <td style="text-align: left;"><strong>MPL 2.0</strong></td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong><code>aerobeat-ui-shell-*</code></strong></td>
-<td style="text-align: left;">Interaction Shells (Mobile vs VR).</td>
+<td style="text-align: left;"><strong>UI Kit</strong></td>
+<td style="text-align: left;"><code>aerobeat-ui-kit-*</code></td>
+<td style="text-align: left;"><strong>Visual Library.</strong> Themed scenes inheriting UI Core logic.</td>
+<td style="text-align: left;"><code>aerobeat-ui-core</code></td>
+<td style="text-align: left;"><code>aerobeat-asset-common</code></td>
+<td style="text-align: left;">Testbed Scaffolding</td>
+<td style="text-align: left;"><strong>MPL 2.0</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>UI Shell</strong></td>
+<td style="text-align: left;"><code>aerobeat-ui-shell-*</code></td>
+<td style="text-align: left;"><strong>Interaction Layer.</strong> Platform-specific screens.</td>
+<td style="text-align: left;"><code>aerobeat-ui-kit-*</code></td>
+<td style="text-align: left;"><code>aerobeat-asset-common</code><br>(Local Assets)</td>
+<td style="text-align: left;">Vendor Tools (Tweeners)<br>Mock Data</td>
 <td style="text-align: left;"><strong>GPLv3</strong></td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong><code>aerobeat-feature-*</code></strong></td>
-<td style="text-align: left;">Gameplay Logic (e.g., Boxing, Flow).</td>
+<td style="text-align: left;"><strong>Feature</strong></td>
+<td style="text-align: left;"><code>aerobeat-feature-*</code></td>
+<td style="text-align: left;"><strong>Gameplay Logic.</strong> Mechanics &amp; Base Scenes (Boxing, Flow).</td>
+<td style="text-align: left;"><code>aerobeat-core</code></td>
+<td style="text-align: left;">Vendor Utils</td>
+<td style="text-align: left;">Testbed Scaffolding</td>
 <td style="text-align: left;"><strong>GPLv3</strong></td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong><code>aerobeat-skins-*</code></strong></td>
-<td style="text-align: left;">Gameplay Visuals (Gloves, Targets).</td>
+<td style="text-align: left;"><strong>Skins</strong></td>
+<td style="text-align: left;"><code>aerobeat-skins-*</code></td>
+<td style="text-align: left;"><strong>Gameplay Visuals.</strong> Gloves, Targets, Obstacles.</td>
+<td style="text-align: left;"><code>aerobeat-feature-*</code></td>
+<td style="text-align: left;"><code>aerobeat-core</code></td>
+<td style="text-align: left;">Testbed Scaffolding</td>
 <td style="text-align: left;"><strong>CC BY-NC 4.0</strong></td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong><code>aerobeat-avatars-*</code></strong></td>
-<td style="text-align: left;">Characters (Player/Coach).</td>
+<td style="text-align: left;"><strong>Avatars</strong></td>
+<td style="text-align: left;"><code>aerobeat-avatars-*</code></td>
+<td style="text-align: left;"><strong>Characters.</strong> Player/Coach models.</td>
+<td style="text-align: left;"><code>aerobeat-core</code></td>
+<td style="text-align: left;"><strong>None</strong></td>
+<td style="text-align: left;">Testbed Scaffolding</td>
 <td style="text-align: left;"><strong>CC BY-NC 4.0</strong></td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong><code>aerobeat-cosmetics-*</code></strong></td>
-<td style="text-align: left;">Accessories (Hats, Glasses).</td>
+<td style="text-align: left;"><strong>Cosmetics</strong></td>
+<td style="text-align: left;"><code>aerobeat-cosmetics-*</code></td>
+<td style="text-align: left;"><strong>Accessories.</strong> Hats, Glasses.</td>
+<td style="text-align: left;"><code>aerobeat-core</code></td>
+<td style="text-align: left;"><strong>None</strong></td>
+<td style="text-align: left;">Testbed Scaffolding</td>
 <td style="text-align: left;"><strong>CC BY-NC 4.0</strong></td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong><code>aerobeat-environments-*</code></strong></td>
-<td style="text-align: left;">Levels and Lighting.</td>
+<td style="text-align: left;"><strong>Environments</strong></td>
+<td style="text-align: left;"><code>aerobeat-environments-*</code></td>
+<td style="text-align: left;"><strong>Levels.</strong> Lighting, Skyboxes.</td>
+<td style="text-align: left;"><code>aerobeat-core</code></td>
+<td style="text-align: left;"><strong>None</strong></td>
+<td style="text-align: left;">Testbed Scaffolding</td>
 <td style="text-align: left;"><strong>CC BY-NC 4.0</strong></td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong><code>aerobeat-asset-*</code></strong></td>
-<td style="text-align: left;"><strong>Internal System Assets.</strong></td>
+<td style="text-align: left;"><strong>Asset</strong></td>
+<td style="text-align: left;"><code>aerobeat-asset-*</code></td>
+<td style="text-align: left;"><strong>System Assets.</strong> UI Icons, Mock Data.</td>
+<td style="text-align: left;"><code>aerobeat-core</code></td>
+<td style="text-align: left;"><strong>None</strong></td>
+<td style="text-align: left;"><strong>None</strong></td>
 <td style="text-align: left;"><strong>CC BY-NC 4.0</strong></td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong><code>aerobeat-docs</code></strong></td>
-<td style="text-align: left;">This documentation site.</td>
+<td style="text-align: left;"><strong>Docs</strong></td>
+<td style="text-align: left;"><code>aerobeat-docs</code></td>
+<td style="text-align: left;"><strong>Manual.</strong> Documentation Website.</td>
+<td style="text-align: left;"><strong>None</strong></td>
+<td style="text-align: left;"><strong>None</strong></td>
+<td style="text-align: left;">MkDocs Plugins</td>
 <td style="text-align: left;"><strong>CC BY-NC 4.0</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Vendor</strong></td>
+<td style="text-align: left;"><code>aerobeat-vendor</code></td>
+<td style="text-align: left;"><strong>3rd Party Tools.</strong> Utilities and Helpers.</td>
+<td style="text-align: left;"><strong>None</strong></td>
+<td style="text-align: left;"><strong>None</strong></td>
+<td style="text-align: left;"><em>(As Upstream)</em></td>
+<td style="text-align: left;"><em>(As Upstream)</em></td>
 </tr>
 </tbody>
 </table>
@@ -5257,7 +5326,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 25, 2026 01:55:18 UTC">January 25, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 26, 2026 13:07:07 UTC">January 26, 2026</span>
   </span>
 
     
