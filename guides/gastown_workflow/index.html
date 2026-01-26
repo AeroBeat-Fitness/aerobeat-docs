@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://aerobeat-workouts.github.io/aerobeat-docs/api/core/">
+        <link rel="canonical" href="https://aerobeat-workouts.github.io/aerobeat-docs/guides/gastown_workflow/">
       
       
-        <link rel="prev" href="../../architecture/reference/">
+        <link rel="prev" href="../agentic_onboarding/">
       
       
-        <link rel="next" href="../tools/tool/">
+        <link rel="next" href="../accessibility/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Core Contracts - AeroBeat Documentation</title>
+        <title>Gastown Workflow - AeroBeat Documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#core-contracts" class="md-skip">
+        <a href="#gastown-workflow-guide" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Core Contracts
+              Gastown Workflow
             
           </span>
         </div>
@@ -615,18 +615,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -647,7 +649,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -665,7 +667,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/contributing_workflow/" class="md-nav__link">
+      <a href="../contributing_workflow/" class="md-nav__link">
         
   
   
@@ -693,7 +695,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/feature_development/" class="md-nav__link">
+      <a href="../feature_development/" class="md-nav__link">
         
   
   
@@ -721,7 +723,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/calibration/" class="md-nav__link">
+      <a href="../calibration/" class="md-nav__link">
         
   
   
@@ -749,7 +751,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/agentic_onboarding/" class="md-nav__link">
+      <a href="../agentic_onboarding/" class="md-nav__link">
         
   
   
@@ -774,10 +776,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../guides/gastown_workflow/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gastown Workflow
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -793,6 +822,159 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#critical-safety-warning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ Critical Safety Warning
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A. Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-initialize-the-town" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B. Initialize the Town
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-install-the-safety-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C. Install the Safety Layer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-the-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. The Workflow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. The Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-the-mayor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: The Mayor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-convoys-beads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Convoys &amp; Beads
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-slinging-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Slinging (Execution)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-the-refinery-human-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: The Refinery (Human Review)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -805,7 +987,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/accessibility/" class="md-nav__link">
+      <a href="../accessibility/" class="md-nav__link">
         
   
   
@@ -833,7 +1015,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/modding_quickstart/" class="md-nav__link">
+      <a href="../modding_quickstart/" class="md-nav__link">
         
   
   
@@ -908,7 +1090,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/choreography/overview/" class="md-nav__link">
+      <a href="../choreography/overview/" class="md-nav__link">
         
   
   
@@ -936,7 +1118,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/choreography/boxing/" class="md-nav__link">
+      <a href="../choreography/boxing/" class="md-nav__link">
         
   
   
@@ -964,7 +1146,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/choreography/flow/" class="md-nav__link">
+      <a href="../choreography/flow/" class="md-nav__link">
         
   
   
@@ -992,7 +1174,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/choreography/step/" class="md-nav__link">
+      <a href="../choreography/step/" class="md-nav__link">
         
   
   
@@ -1020,7 +1202,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/choreography/dance/" class="md-nav__link">
+      <a href="../choreography/dance/" class="md-nav__link">
         
   
   
@@ -1056,7 +1238,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/environment_creation/" class="md-nav__link">
+      <a href="../environment_creation/" class="md-nav__link">
         
   
   
@@ -1084,7 +1266,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/skins/" class="md-nav__link">
+      <a href="../skins/" class="md-nav__link">
         
   
   
@@ -1112,7 +1294,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/avatar_creation/" class="md-nav__link">
+      <a href="../avatar_creation/" class="md-nav__link">
         
   
   
@@ -1140,7 +1322,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/cosmetics/" class="md-nav__link">
+      <a href="../cosmetics/" class="md-nav__link">
         
   
   
@@ -1168,7 +1350,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/coaching/" class="md-nav__link">
+      <a href="../coaching/" class="md-nav__link">
         
   
   
@@ -2559,20 +2741,18 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
@@ -2593,7 +2773,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -3278,20 +3458,18 @@
                 
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" >
         
           
           <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
@@ -3312,7 +3490,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -3327,19 +3505,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../api/core/" class="md-nav__link">
         
   
   
@@ -3355,7 +3524,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -3376,7 +3544,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tools/tool/" class="md-nav__link">
+      <a href="../../api/tools/tool/" class="md-nav__link">
         
   
   
@@ -3498,7 +3666,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../assembly/" class="md-nav__link">
+      <a href="../../api/assembly/" class="md-nav__link">
         
   
   
@@ -3636,7 +3804,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../inputs/mediapipe_python/" class="md-nav__link">
+      <a href="../../api/inputs/mediapipe_python/" class="md-nav__link">
         
   
   
@@ -3719,7 +3887,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../inputs/mediapipe_native/" class="md-nav__link">
+      <a href="../../api/inputs/mediapipe_native/" class="md-nav__link">
         
   
   
@@ -3802,7 +3970,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../inputs/joycon/" class="md-nav__link">
+      <a href="../../api/inputs/joycon/" class="md-nav__link">
         
   
   
@@ -3885,7 +4053,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../inputs/keyboard/" class="md-nav__link">
+      <a href="../../api/inputs/keyboard/" class="md-nav__link">
         
   
   
@@ -3968,7 +4136,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../inputs/gamepad/" class="md-nav__link">
+      <a href="../../api/inputs/gamepad/" class="md-nav__link">
         
   
   
@@ -4051,7 +4219,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../inputs/mouse/" class="md-nav__link">
+      <a href="../../api/inputs/mouse/" class="md-nav__link">
         
   
   
@@ -4134,7 +4302,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../inputs/touch/" class="md-nav__link">
+      <a href="../../api/inputs/touch/" class="md-nav__link">
         
   
   
@@ -4272,7 +4440,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../features/boxing/" class="md-nav__link">
+      <a href="../../api/features/boxing/" class="md-nav__link">
         
   
   
@@ -4410,7 +4578,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../assets/prototypes/" class="md-nav__link">
+      <a href="../../api/assets/prototypes/" class="md-nav__link">
         
   
   
@@ -4474,6 +4642,147 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#critical-safety-warning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ Critical Safety Warning
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A. Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-initialize-the-town" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B. Initialize the Town
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-install-the-safety-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C. Install the Safety Layer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-the-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. The Workflow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. The Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-the-mayor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: The Mayor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-convoys-beads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Convoys &amp; Beads
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-slinging-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Slinging (Execution)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-the-refinery-human-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: The Refinery (Human Review)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -4492,10 +4801,80 @@
   
 
 
-<h1 id="core-contracts">Core Contracts<a class="headerlink" href="#core-contracts" title="Permanent link">&para;</a></h1>
-<p>🚧 <strong>Work In Progress</strong></p>
-<p>This module has not been documented yet.</p>
-<p>View the source code on GitHub: <a href="https://github.com/AeroBeat-Workouts/aerobeat-core">https://github.com/AeroBeat-Workouts/aerobeat-core</a></p>
+<h1 id="gastown-workflow-guide">Gastown Workflow Guide<a class="headerlink" href="#gastown-workflow-guide" title="Permanent link">&para;</a></h1>
+<p>This guide explains how to use the <strong>Gastown</strong> agentic workflow for high-throughput, parallel development in AeroBeat.</p>
+<p>Unlike "Ralph" (which is sequential and careful), Gastown is an industrial "Factory" that uses a swarm of agents ("Polecats") orchestrated by a "Mayor".</p>
+<h2 id="critical-safety-warning">⚠️ Critical Safety Warning<a class="headerlink" href="#critical-safety-warning" title="Permanent link">&para;</a></h2>
+<p>Gastown agents run in parallel and can easily "drift" or violate license boundaries (GPL vs MPL) if not properly constrained.</p>
+<p><strong>You must configure the Safety Layer before starting any work.</strong></p>
+<h2 id="1-setup">1. Setup<a class="headerlink" href="#1-setup" title="Permanent link">&para;</a></h2>
+<h3 id="a-prerequisites">A. Prerequisites<a class="headerlink" href="#a-prerequisites" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Gastown CLI:</strong> Follow installation instructions at <a href="https://github.com/steveyegge/gastown">github.com/steveyegge/gastown</a>.</li>
+<li><strong>Claude Code:</strong> Ensure you have access to the Claude Code CLI (<code>claude</code>).</li>
+</ol>
+<h3 id="b-initialize-the-town">B. Initialize the Town<a class="headerlink" href="#b-initialize-the-town" title="Permanent link">&para;</a></h3>
+<p>Create your workspace (Town) and add the AeroBeat repositories (Rigs).</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create Town</span>
+gt<span class="w"> </span>install<span class="w"> </span>~/aerobeat_town<span class="w"> </span>--git
+<span class="nb">cd</span><span class="w"> </span>~/aerobeat_town
+
+<span class="c1"># Add Rigs (Example)</span>
+gt<span class="w"> </span>rig<span class="w"> </span>add<span class="w"> </span>core<span class="w"> </span>https://github.com/AeroBeat-Workouts/aerobeat-core.git
+gt<span class="w"> </span>rig<span class="w"> </span>add<span class="w"> </span>boxing<span class="w"> </span>https://github.com/AeroBeat-Workouts/aerobeat-feature-boxing.git
+</code></pre></div>
+<h3 id="c-install-the-safety-layer">C. Install the Safety Layer<a class="headerlink" href="#c-install-the-safety-layer" title="Permanent link">&para;</a></h3>
+<p>This step ensures every agent receives the <strong>Context Trinity</strong> (Manifest, Style Guide, Glossary) and <strong>License Constraints</strong> on startup.</p>
+<p>We have provided an automation script to handle the generation of the context bundle and the configuration of runtime hooks for each Rig.</p>
+<p>Run this for <em>each</em> Rig in your Town (e.g., <code>~/aerobeat_town/core</code>):</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># From your main AeroBeat repository root:</span>
+./scripts/gastown/setup_rig.sh<span class="w"> </span>~/aerobeat_town/core
+</code></pre></div>
+<h2 id="2-the-workflow">2. The Workflow<a class="headerlink" href="#2-the-workflow" title="Permanent link">&para;</a></h2>
+<h3 id="step-1-the-mayor">Step 1: The Mayor<a class="headerlink" href="#step-1-the-mayor" title="Permanent link">&para;</a></h3>
+<p>Start the orchestration session.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/aerobeat_town
+gt<span class="w"> </span>mayor<span class="w"> </span>attach
+</code></pre></div>
+<p><strong>Prompt the Mayor:</strong></p>
+<blockquote>
+<p>"I need to refactor the Input System in <code>core</code>. Here is the plan..."</p>
+</blockquote>
+<h3 id="step-2-convoys-beads">Step 2: Convoys &amp; Beads<a class="headerlink" href="#step-2-convoys-beads" title="Permanent link">&para;</a></h3>
+<p>The Mayor will break your request into "Beads" (Tasks) grouped into a "Convoy".</p>
+<ul>
+<li><strong>Review the Beads:</strong> Ensure the Mayor hasn't hallucinated dependencies.</li>
+<li><strong>Check Context:</strong> Verify the Mayor understands which Repo (Rig) each Bead belongs to.</li>
+</ul>
+<h3 id="step-3-slinging-execution">Step 3: Slinging (Execution)<a class="headerlink" href="#step-3-slinging-execution" title="Permanent link">&para;</a></h3>
+<p>The Mayor "slings" beads to Polecats.</p>
+<ul>
+<li><strong>Automatic Injection:</strong> Because of Step 1.C, every Polecat that spins up will immediately read <code>CONTEXT_INJECTION.md</code>.</li>
+<li><strong>License Check:</strong> The agent will see: <em>"CRITICAL LICENSE WARNING: You are in an MPL 2.0 repo..."</em></li>
+</ul>
+<h3 id="step-4-the-refinery-human-review">Step 4: The Refinery (Human Review)<a class="headerlink" href="#step-4-the-refinery-human-review" title="Permanent link">&para;</a></h3>
+<p>Gastown is fast, but messy. You act as the "Refinery".</p>
+<ol>
+<li><strong>Monitor:</strong> Watch the dashboard or <code>gt convoy list</code>.</li>
+<li><strong>Review PRs:</strong> Agents will create PRs or commits.</li>
+<li><strong>Audit:</strong> Check for:<ul>
+<li><strong>License Leaks:</strong> Did GPL code end up in Core?</li>
+<li><strong>Style Violations:</strong> Did they use <code>var x</code> instead of <code>var x: int</code>?</li>
+</ul>
+</li>
+</ol>
+<h2 id="3-troubleshooting">3. Troubleshooting<a class="headerlink" href="#3-troubleshooting" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Agents ignoring Style Guide:</strong><ul>
+<li>Verify <code>CONTEXT_INJECTION.md</code> exists in the Rig root.</li>
+<li>Verify <code>.claude/settings.json</code> is correctly placed.</li>
+</ul>
+</li>
+<li><strong>Hallucination Drift:</strong><ul>
+<li>If a Convoy runs too long, agents lose context. Break work into smaller Convoys.</li>
+</ul>
+</li>
+</ul>
 
 
 
@@ -4516,7 +4895,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 23, 2026 03:19:55 UTC">January 23, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 26, 2026 03:37:12 UTC">January 26, 2026</span>
   </span>
 
     
