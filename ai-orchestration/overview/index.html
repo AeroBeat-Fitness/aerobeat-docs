@@ -2787,10 +2787,38 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-rig-level-integration" class="md-nav__link">
+  <a href="#3-automated-gates" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Rig-Level Integration
+        3. Automated Gates
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-deacon-the-watchdog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        👨‍💼 The Deacon (The Watchdog)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="👨‍💼 The Deacon (The Watchdog)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Commands
       
     </span>
   </a>
@@ -2798,10 +2826,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-automated-gates" class="md-nav__link">
+  <a href="#the-witness-the-patrol" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Automated Gates
+        🐕 The Witness (The Patrol)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-commands_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Commands
       
     </span>
   </a>
@@ -5815,10 +5854,38 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-rig-level-integration" class="md-nav__link">
+  <a href="#3-automated-gates" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Rig-Level Integration
+        3. Automated Gates
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-deacon-the-watchdog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        👨‍💼 The Deacon (The Watchdog)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="👨‍💼 The Deacon (The Watchdog)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Commands
       
     </span>
   </a>
@@ -5826,10 +5893,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-automated-gates" class="md-nav__link">
+  <a href="#the-witness-the-patrol" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Automated Gates
+        🐕 The Witness (The Patrol)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-commands_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Commands
       
     </span>
   </a>
@@ -5867,23 +5945,13 @@
 <p>You can read more about Gastown at the public <a href="https://github.com/steveyegge/gastown">Github repo</a>.</p>
 <hr />
 <h2 id="core-architecture-terminology">🏗️ Core Architecture &amp; Terminology<a class="headerlink" href="#core-architecture-terminology" title="Permanent link">&para;</a></h2>
-<p>In Gastown, a <strong>Town</strong> acts as the workspace root containing various <strong>Rigs</strong> (git repositories). </p>
-<p>Specialized agents—primarily Claude Code instances—take up specific roles to execute work tracked via <strong>Convoys</strong> and <strong>Beads</strong>.</p>
+<p>Gastown is an opinionated system, it has its own lingo and terminology to learn.</p>
 <ul>
 <li>
-<p><strong>The Mayor</strong>: The central AI coordinator and "Chief of Staff" for the Town.</p>
-</li>
-<li>
-<p><strong>Town</strong>: The AeroBeat polyrepo root (e.g., <code>~/aerobeat/</code>).</p>
+<p><strong>Town</strong>: The AeroBeat polyrepo root (e.g., <code>~/aerobeat/</code>), which contains the various <code>rigs</code> (repositories).</p>
 </li>
 <li>
 <p><strong>Rigs</strong>: Individual project containers that wrap each git repository in the topology.</p>
-</li>
-<li>
-<p><strong>Polecats</strong>: Ephemeral worker agents spawned to execute specific GDScript tasks.</p>
-</li>
-<li>
-<p><strong>Refinery</strong>: The release engineer agent responsible for merge-queue management and quality gates.</p>
 </li>
 <li>
 <p><strong>Beads</strong>: Atomic units of work (issues) that track specific task states.</p>
@@ -5892,12 +5960,36 @@
 <p><strong>Convoys</strong>: Units that bundle multiple beads for tracking and assignment.</p>
 </li>
 </ul>
+<p>In Gastown, a <strong>Town</strong> acts as the workspace root containing various <strong>Rigs</strong> (git repositories). </p>
+<p>Specialized agent instances take up specific roles to execute work tracked via <strong>Convoys</strong> and <strong>Beads</strong>.</p>
+<ul>
+<li>
+<p><strong>The Mayor</strong>: The central AI coordinator and "Chief of Staff" for the Town. This is who you send commands to most of the time.</p>
+</li>
+<li>
+<p><strong>Polecats</strong>: Ephemeral worker agents spawned to execute specific GDScript tasks.</p>
+</li>
+<li>
+<p><strong>Refinery</strong>: The release engineer agent responsible for merge-queue management and quality gates.</p>
+</li>
+</ul>
+<p>In addition to our user-defined Agent roles, Gastown includes some predefined Agent roles baked in.</p>
+<ul>
+<li>
+<p><strong>Deacon</strong>: The Watchdog. This is a background process (a daemon) that monitors the entire "Town". Its primary job is to watch for stalled tasks or "Beads" and alert the human operator if a system-level failure occurs.</p>
+</li>
+<li>
+<p><strong>Witness</strong>: The Patrol. This agent operates at the Rig level. It acts as a lightweight patrol that can verify local state and ensure that the "Hook" (the persistent work state) is being respected by the active worker agents.</p>
+</li>
+</ul>
 <hr />
 <h2 id="centralized-instruction-registry">📑 Centralized Instruction Registry<a class="headerlink" href="#centralized-instruction-registry" title="Permanent link">&para;</a></h2>
 <p>To prevent configuration drift across our 15+ repositories, AeroBeat uses a <strong>Source of Truth</strong> (SSOT) model. All agent logic is housed within the <code>aerobeat-docs</code> repository.</p>
 <h3 id="the-registry-file">The Registry File<a class="headerlink" href="#the-registry-file" title="Permanent link">&para;</a></h3>
 <p>Every agent entering the Town is directed to the <strong>Global Orchestration Registry</strong>: <code>~/aerobeat/aerobeat-docs/docs/ai-orchestration/instructions.md</code></p>
 <p>This file acts as a directory, pointing agents to their specific operating manuals (Mayor, Polecat, Refinery, etc.) based on their assigned role.</p>
+<hr />
+<p>Below are more details on each Agent role in the AeroBeat Gastown ecosystem.</p>
 <hr />
 <h2 id="the-mayor">🎩 The Mayor<a class="headerlink" href="#the-mayor" title="Permanent link">&para;</a></h2>
 <p>The Mayor manages the overarching polyrepo structure and enforces license safety. It breaks down complex engineering requests into atomic <strong>Beads</strong> and assigns them to the appropriate Rigs.</p>
@@ -5920,12 +6012,15 @@
 <p><strong>Quality</strong>: They are required to use Test-Driven Development (TDD) with GUT, aiming for 100% logic coverage.</p>
 </li>
 <li>
-<p><strong>Context</strong>: Each Rig contains a <code>CLAUDE.md</code> that points the Polecat to the global <code>instructions.md</code> and the local <code>README.md</code>.</p>
+<p><strong>Context</strong>: Each Rig contains a <code>AGENTS.md</code> and <code>CLAUDE.md</code> that points the Polecat to the global <code>instructions.md</code> and the local <code>README.md</code>.</p>
 </li>
 </ul>
 <hr />
 <h2 id="the-refinery">🛡️ The Refinery<a class="headerlink" href="#the-refinery" title="Permanent link">&para;</a></h2>
 <p>The Refinery is a specialized role that serves as the automated quality gatekeeper. It reviews code produced by Polecats before it is permitted to enter the <code>main</code> branch.</p>
+<ul>
+<li><strong>Context</strong>: Each Rig contains a <code>AGENTS.md</code> and <code>CLAUDE.md</code> that points the Refinery to the global <code>instructions.md</code> and the local <code>README.md</code>.</li>
+</ul>
 <h3 id="1-create-the-refinery-alias">1. Create the Refinery Alias<a class="headerlink" href="#1-create-the-refinery-alias" title="Permanent link">&para;</a></h3>
 <p>Register the alias for review-focused tasks:</p>
 <div class="highlight"><pre><span></span><code>gt<span class="w"> </span>config<span class="w"> </span>agent<span class="w"> </span><span class="nb">set</span><span class="w"> </span>aerobeat-refinery<span class="w"> </span><span class="s2">&quot;claude --prompt-mode none --instructions-file ~/aerobeat/aerobeat-docs/docs/ai-orchestration/aerobeat-refinery.md&quot;</span>
@@ -5935,14 +6030,7 @@
 <div class="highlight"><pre><span></span><code><span class="c1"># Mayor assigns a completed Bead to the Refinery for review</span>
 gt<span class="w"> </span>sling<span class="w"> </span>&lt;bead-id&gt;<span class="w"> </span>&lt;rig-name&gt;<span class="w"> </span>--agent<span class="w"> </span>aerobeat-refinery
 </code></pre></div>
-<h3 id="3-rig-level-integration">3. Rig-Level Integration<a class="headerlink" href="#3-rig-level-integration" title="Permanent link">&para;</a></h3>
-<p>Every Rig's <code>CLAUDE.md</code> must include this pointer to ensure compliance:</p>
-<div class="highlight"><pre><span></span><code>## 🛡️ Quality Gate: The Refinery
-All code in this Rig is subject to automated review by the **AeroBeat Refinery**.
-* **Instructions**: Refer to `~/aerobeat/aerobeat-docs/docs/ai-orchestration/instructions.md`.
-* **Requirement**: No PR will be merged without 100% GUT coverage and license verification.
-</code></pre></div>
-<h3 id="4-automated-gates">4. Automated Gates<a class="headerlink" href="#4-automated-gates" title="Permanent link">&para;</a></h3>
+<h3 id="3-automated-gates">3. Automated Gates<a class="headerlink" href="#3-automated-gates" title="Permanent link">&para;</a></h3>
 <p>The Refinery automatically rejects PRs that fail:</p>
 <ul>
 <li>
@@ -5955,6 +6043,54 @@ All code in this Rig is subject to automated review by the **AeroBeat Refinery**
 <p><strong>Style/Coverage</strong>: Strict adherence to the GDScript style guide and 100% test coverage.</p>
 </li>
 </ul>
+<hr />
+<h2 id="the-deacon-the-watchdog">👨‍💼 The Deacon (The Watchdog)<a class="headerlink" href="#the-deacon-the-watchdog" title="Permanent link">&para;</a></h2>
+<p>The Deacon is the persistent background daemon that oversees the entire Town. It acts as a health monitor for the orchestration system, ensuring that work state remains consistent across all Rigs and that the "GUPP" (Gastown Universal Persistence Protocol) is functioning correctly.</p>
+<ul>
+<li>
+<p><strong>Role</strong>: System-level watchdog and health monitor.</p>
+</li>
+<li>
+<p><strong>Primary Objective</strong>: To detect stalled Beads or "zombie" agents and alert the human overseer if the persistent state becomes corrupted.</p>
+</li>
+<li>
+<p><strong>Context Awareness</strong>: It monitors the "Hook" (the work state) to ensure the Mayor and Polecats are in sync.</p>
+</li>
+</ul>
+<h3 id="common-commands">Common Commands<a class="headerlink" href="#common-commands" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Start the Deacon to monitor the current Town</span>
+gt<span class="w"> </span>deacon<span class="w"> </span>start
+
+<span class="c1"># Check the health of the Deacon and the status of system-level hooks</span>
+gt<span class="w"> </span>deacon<span class="w"> </span>status
+
+<span class="c1"># Restart the Deacon if monitoring has stalled</span>
+gt<span class="w"> </span>deacon<span class="w"> </span>restart
+</code></pre></div>
+<hr />
+<h3 id="the-witness-the-patrol">🐕 The Witness (The Patrol)<a class="headerlink" href="#the-witness-the-patrol" title="Permanent link">&para;</a></h3>
+<p>The Witness is a rig-level agent that acts as a "lightweight patrol". While the Deacon watches the whole Town, the Witness focuses on specific Rigs to verify that the local repository state matches the global orchestration instructions.</p>
+<ul>
+<li>
+<p><strong>Role</strong>: Local state validator.</p>
+</li>
+<li>
+<p><strong>Primary Objective</strong>: To ensure that any worker agent (Polecat) operating in the Rig is respecting the local CLAUDE.md and AGENTS.md constraints.</p>
+</li>
+<li>
+<p><strong>Integrity Check</strong>: It serves as a secondary check to prevent "instruction drift" within a specific repository.</p>
+</li>
+</ul>
+<h3 id="common-commands_1">Common Commands<a class="headerlink" href="#common-commands_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Invoke the Witness to verify the current Rig&#39;s state</span>
+gt<span class="w"> </span>witness<span class="w"> </span>check
+
+<span class="c1"># List all active Witnesses patrolling your Rigs</span>
+gt<span class="w"> </span>witness<span class="w"> </span>list
+
+<span class="c1"># Force a Witness to refresh its local context from the documentation Rig</span>
+gt<span class="w"> </span>witness<span class="w"> </span>refresh
+</code></pre></div>
 
 
 
@@ -5975,7 +6111,7 @@ All code in this Rig is subject to automated review by the **AeroBeat Refinery**
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 26, 2026 21:19:01 UTC">January 26, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 27, 2026 18:13:10 UTC">January 27, 2026</span>
   </span>
 
     
