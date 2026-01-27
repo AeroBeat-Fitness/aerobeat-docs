@@ -29,7 +29,7 @@
          <lastmod>2026-01-27</lastmod>
     </url>
     <url>
-         <loc>https://aerobeat-workouts.github.io/aerobeat-docs/api/assembly/</loc>
+         <loc>https://aerobeat-workouts.github.io/aerobeat-docs/api/assembly/community/</loc>
          <lastmod>2026-01-27</lastmod>
     </url>
     <url>
@@ -61,7 +61,7 @@
          <lastmod>2026-01-27</lastmod>
     </url>
     <url>
-         <loc>https://aerobeat-workouts.github.io/aerobeat-docs/api/inputs/joycon/</loc>
+         <loc>https://aerobeat-workouts.github.io/aerobeat-docs/api/inputs/joycon-hid/</loc>
          <lastmod>2026-01-27</lastmod>
     </url>
     <url>
@@ -85,7 +85,43 @@
          <lastmod>2026-01-27</lastmod>
     </url>
     <url>
+         <loc>https://aerobeat-workouts.github.io/aerobeat-docs/api/inputs/xr/</loc>
+         <lastmod>2026-01-27</lastmod>
+    </url>
+    <url>
          <loc>https://aerobeat-workouts.github.io/aerobeat-docs/api/tools/tool/</loc>
+         <lastmod>2026-01-27</lastmod>
+    </url>
+    <url>
+         <loc>https://aerobeat-workouts.github.io/aerobeat-docs/api/tools/api/</loc>
+         <lastmod>2026-01-27</lastmod>
+    </url>
+    <url>
+         <loc>https://aerobeat-workouts.github.io/aerobeat-docs/api/tools/settings/</loc>
+         <lastmod>2026-01-27</lastmod>
+    </url>
+    <url>
+         <loc>https://aerobeat-workouts.github.io/aerobeat-docs/api/ui/core/</loc>
+         <lastmod>2026-01-27</lastmod>
+    </url>
+    <url>
+         <loc>https://aerobeat-workouts.github.io/aerobeat-docs/api/ui/kit-community/</loc>
+         <lastmod>2026-01-27</lastmod>
+    </url>
+    <url>
+         <loc>https://aerobeat-workouts.github.io/aerobeat-docs/api/ui/shell-desktop-community/</loc>
+         <lastmod>2026-01-27</lastmod>
+    </url>
+    <url>
+         <loc>https://aerobeat-workouts.github.io/aerobeat-docs/api/ui/shell-mobile-community/</loc>
+         <lastmod>2026-01-27</lastmod>
+    </url>
+    <url>
+         <loc>https://aerobeat-workouts.github.io/aerobeat-docs/api/ui/shell-web-community/</loc>
+         <lastmod>2026-01-27</lastmod>
+    </url>
+    <url>
+         <loc>https://aerobeat-workouts.github.io/aerobeat-docs/api/ui/shell-xr-community/</loc>
          <lastmod>2026-01-27</lastmod>
     </url>
     <url>
@@ -98,6 +134,10 @@
     </url>
     <url>
          <loc>https://aerobeat-workouts.github.io/aerobeat-docs/architecture/cloud_baker/</loc>
+         <lastmod>2026-01-27</lastmod>
+    </url>
+    <url>
+         <loc>https://aerobeat-workouts.github.io/aerobeat-docs/architecture/coding-style/</loc>
          <lastmod>2026-01-27</lastmod>
     </url>
     <url>
@@ -117,7 +157,11 @@
          <lastmod>2026-01-27</lastmod>
     </url>
     <url>
-         <loc>https://aerobeat-workouts.github.io/aerobeat-docs/architecture/reference/</loc>
+         <loc>https://aerobeat-workouts.github.io/aerobeat-docs/architecture/repo-structure-reference/</loc>
+         <lastmod>2026-01-27</lastmod>
+    </url>
+    <url>
+         <loc>https://aerobeat-workouts.github.io/aerobeat-docs/architecture/repository-map/</loc>
          <lastmod>2026-01-27</lastmod>
     </url>
     <url>
@@ -197,6 +241,10 @@
          <lastmod>2026-01-27</lastmod>
     </url>
     <url>
+         <loc>https://aerobeat-workouts.github.io/aerobeat-docs/gdd/glossary/terms/</loc>
+         <lastmod>2026-01-27</lastmod>
+    </url>
+    <url>
          <loc>https://aerobeat-workouts.github.io/aerobeat-docs/gdd/input-system/agnostic-input/</loc>
          <lastmod>2026-01-27</lastmod>
     </url>
@@ -253,10 +301,6 @@
          <lastmod>2026-01-27</lastmod>
     </url>
     <url>
-         <loc>https://aerobeat-workouts.github.io/aerobeat-docs/guides/agentic_onboarding/</loc>
-         <lastmod>2026-01-27</lastmod>
-    </url>
-    <url>
          <loc>https://aerobeat-workouts.github.io/aerobeat-docs/guides/avatar_creation/</loc>
          <lastmod>2026-01-27</lastmod>
     </url>
@@ -282,10 +326,6 @@
     </url>
     <url>
          <loc>https://aerobeat-workouts.github.io/aerobeat-docs/guides/feature_development/</loc>
-         <lastmod>2026-01-27</lastmod>
-    </url>
-    <url>
-         <loc>https://aerobeat-workouts.github.io/aerobeat-docs/guides/gastown_workflow/</loc>
          <lastmod>2026-01-27</lastmod>
     </url>
     <url>
