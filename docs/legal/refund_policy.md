@@ -40,7 +40,8 @@ If your account is suspended or banned due to a violation of our **Code of Condu
 
 ## 5. How to Request a Refund
 
-To submit a request, please email `aerobeat-workoutst@gmail.com` with:
+To submit a request, please email `aerobeat-workouts@gmail.com` with:
+
 1.  Your Username.
 2.  Transaction ID (from the receipt).
 3.  Reason for the request.
