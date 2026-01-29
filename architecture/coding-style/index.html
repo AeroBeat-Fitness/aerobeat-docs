@@ -2971,10 +2971,32 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#syntax-rules" class="md-nav__link">
+  <a href="#context-aerobeat" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Syntax Rules
+        CONTEXT: AEROBEAT
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#syntax-rules-godot-4x-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SYNTAX RULES (GODOT 4.x ONLY)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-syntax-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Additional Syntax Rules
       
     </span>
   </a>
@@ -3030,6 +3052,28 @@
     <span class="md-ellipsis">
       
         Godot Syntax Rules
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anti-hallucination-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ANTI-HALLUCINATION PROTOCOL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ERROR HANDLING
       
     </span>
   </a>
@@ -5608,10 +5652,32 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#syntax-rules" class="md-nav__link">
+  <a href="#context-aerobeat" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Syntax Rules
+        CONTEXT: AEROBEAT
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#syntax-rules-godot-4x-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SYNTAX RULES (GODOT 4.x ONLY)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-syntax-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Additional Syntax Rules
       
     </span>
   </a>
@@ -5673,6 +5739,28 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#anti-hallucination-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ANTI-HALLUCINATION PROTOCOL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ERROR HANDLING
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -5694,8 +5782,35 @@
 
 
 <h1 id="coding-style-guide">Coding Style Guide<a class="headerlink" href="#coding-style-guide" title="Permanent link">&para;</a></h1>
+<h3 id="context-aerobeat">CONTEXT: AEROBEAT<a class="headerlink" href="#context-aerobeat" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Target Engine: Godot 4.6</li>
+<li>Priority: Timing accuracy, signal safety, and static typing.</li>
+<li>Style: Godot 2.0 (GDScript 2) Standard.</li>
+</ul>
 <p>This guide contains rules for .gdscript files in AeroBeat.</p>
-<h3 id="syntax-rules">Syntax Rules<a class="headerlink" href="#syntax-rules" title="Permanent link">&para;</a></h3>
+<h3 id="syntax-rules-godot-4x-only">SYNTAX RULES (GODOT 4.x ONLY)<a class="headerlink" href="#syntax-rules-godot-4x-only" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>NO LEGACY ANNOTATIONS: Always use '@' prefix (e.g., @onready, @export, @tool, @icon). Never use 'onready var' or 'export var'.</p>
+</li>
+<li>
+<p>SIGNAL CONNECTIVITY: Use the Callable-based syntax: <code>signal_name.connect(target_method)</code>. Never use the old string-based <code>.connect("signal", self, "method")</code>.</p>
+</li>
+<li>
+<p>INSTANTIATION: Use <code>.instantiate()</code>. Never use <code>.instance()</code>.</p>
+</li>
+<li>
+<p>COROUTINES: Use <code>await</code>. Never use <code>yield</code>.</p>
+</li>
+<li>
+<p>PROPERTY ACCESS: Use direct properties (e.g., <code>node.name = "X"</code>) instead of setters (e.g., <code>node.set_name("X")</code>) unless a setter is specifically required for logic.</p>
+</li>
+<li>
+<p>TYPED ARRAYS: Always use typed arrays for rhythm data: <code>var notes: Array[NoteResource] = []</code>.</p>
+</li>
+</ol>
+<h3 id="additional-syntax-rules">Additional Syntax Rules<a class="headerlink" href="#additional-syntax-rules" title="Permanent link">&para;</a></h3>
 <ol>
 <li><strong>Typed Variables:</strong> ALWAYS use explicit types.<ul>
 <li>❌ <code>var score = 0</code></li>
@@ -5752,6 +5867,32 @@
 <li><strong>Extensions:</strong> Use <code>.gd</code> for logic, <code>.tscn</code> for scenes, <code>.tres</code> for data.</li>
 <li><strong>Strict Typing:</strong> All GDScript must be static typed (e.g., <code>func get_name() -&gt; String:</code>).</li>
 </ol>
+<h3 id="anti-hallucination-protocol">ANTI-HALLUCINATION PROTOCOL<a class="headerlink" href="#anti-hallucination-protocol" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>STOICISM: If you are unsure if a method exists in Godot 4.x, do not guess. State "API_UNKNOWN: [Method Name]" and ask for clarification.</p>
+</li>
+<li>
+<p>STATIC TYPING: Every variable and function return MUST be explicitly typed (e.g., <code>func _process(delta: float) -&gt; void:</code>). This prevents type-inference hallucinations.</p>
+</li>
+<li>
+<p>PLAN-THEN-CODE: Before writing any code, provide a 1-sentence logic plan.</p>
+</li>
+<li><em>Example: "Plan: I will use a Tween to handle the hit-sprite fade to ensure it doesn't interrupt the physics thread."</em></li>
+</ul>
+<h3 id="error-handling">ERROR HANDLING<a class="headerlink" href="#error-handling" title="Permanent link">&para;</a></h3>
+<p>If the user provides an error log, analyze it using "Step-Back" reasoning: </p>
+<ol>
+<li>
+<p>What node owns the script? </p>
+</li>
+<li>
+<p>Is the signal connected? </p>
+</li>
+<li>
+<p>Is the variable null?</p>
+</li>
+</ol>
 
 
 
@@ -5772,7 +5913,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 27, 2026 15:42:39 UTC">January 27, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 29, 2026 22:28:55 UTC">January 29, 2026</span>
   </span>
 
     
