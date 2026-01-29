@@ -1,8 +1,28 @@
 # Coding Style Guide
 
+### CONTEXT: AEROBEAT
+
+- Target Engine: Godot 4.6
+- Priority: Timing accuracy, signal safety, and static typing.
+- Style: Godot 2.0 (GDScript 2) Standard.
+
 This guide contains rules for .gdscript files in AeroBeat.
 
-### Syntax Rules
+### SYNTAX RULES (GODOT 4.x ONLY)
+
+1. NO LEGACY ANNOTATIONS: Always use '@' prefix (e.g., @onready, @export, @tool, @icon). Never use 'onready var' or 'export var'.
+
+2. SIGNAL CONNECTIVITY: Use the Callable-based syntax: `signal_name.connect(target_method)`. Never use the old string-based `.connect("signal", self, "method")`.
+
+3. INSTANTIATION: Use `.instantiate()`. Never use `.instance()`.
+
+4. COROUTINES: Use `await`. Never use `yield`.
+
+5. PROPERTY ACCESS: Use direct properties (e.g., `node.name = "X"`) instead of setters (e.g., `node.set_name("X")`) unless a setter is specifically required for logic.
+
+6. TYPED ARRAYS: Always use typed arrays for rhythm data: `var notes: Array[NoteResource] = []`.
+
+### Additional Syntax Rules
 
 1.  **Typed Variables:** ALWAYS use explicit types.
     *   ❌ `var score = 0`
@@ -50,3 +70,22 @@ This guide contains rules for .gdscript files in AeroBeat.
 1. **Prefixes:** All core classes must start with `Aero` (e.g., `AeroSessionContext`).
 2. **Extensions:** Use `.gd` for logic, `.tscn` for scenes, `.tres` for data.
 3. **Strict Typing:** All GDScript must be static typed (e.g., `func get_name() -> String:`).
+
+### ANTI-HALLUCINATION PROTOCOL
+
+- STOICISM: If you are unsure if a method exists in Godot 4.x, do not guess. State "API_UNKNOWN: [Method Name]" and ask for clarification.
+
+- STATIC TYPING: Every variable and function return MUST be explicitly typed (e.g., `func _process(delta: float) -> void:`). This prevents type-inference hallucinations.
+
+- PLAN-THEN-CODE: Before writing any code, provide a 1-sentence logic plan.
+  - *Example: "Plan: I will use a Tween to handle the hit-sprite fade to ensure it doesn't interrupt the physics thread."*
+
+### ERROR HANDLING
+
+If the user provides an error log, analyze it using "Step-Back" reasoning: 
+
+1. What node owns the script? 
+
+2. Is the signal connected? 
+
+3. Is the variable null?
