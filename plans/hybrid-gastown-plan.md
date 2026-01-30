@@ -22,7 +22,7 @@ AeroBeat has specialized agents with unique roles compared to the standard ones 
 
 *   **Mayor**: Used to break down large feature ideas into plan documents, and then convert those plans into convoys of beads.
 
-*   **Crew**: Specialized with each rigs knowledge, used for communication with the Mayor, Polecat, Refinery, and Librarian about rig specific questions. Specialized in answering questions about a rig without hallucinating.
+*   **Crew**: Specialized with each rigs knowledge, used for communication with the Mayor, Polecat, Refinery, and Librarian about rig specific questions. Specialized in answering questions about a rig without hallucinating. Created per rig with an active convoy of beads or when a question about a rig is asked by another agent.
 
 *   **Refinery**: Writes unit & end to end tests for a convoy of beads before the Polecats start working. Reviews results at the end of the convoy to ensure testing coverage guidelines are met.
 
@@ -81,9 +81,13 @@ AeroBeat has specialized agents with unique roles compared to the standard ones 
 
 ### **Crew**:
 
-*Cloud* - Small per rig context - Fits in RAM
+*Local* - Works entirely in CPU + RAM
 
-*   Gemini 3 Flash Preview - Ingests rig documentation and provides answers without deep thinking. Can only answer specific questions about the rig. Tries to answer truthfully and avoids hallucinating anything. One agent per active rig is started alongside when a convory of beads will touch those rigs.
+*   GPT-OSS 20B : 4-bit (Q4_K_M). Uses 2 P-Cores. ~22GB RAM used with 32k tokens. ~2-5 tps with Medium reasoning effort. Initial cold start of ~45-70 seconds for the model to perform initial 'warm up' while it injests documentation. Cost is paid once per day on average.
+
+*Cloud* - Doesn't need Deep Thinking of 'Pro'
+
+*   Gemini 3 Flash Preview : Holds onto rig documentation no problem. Very fast in comparison to local solution.
 
 ### **Polecats (Workers)**
 
@@ -105,12 +109,13 @@ AeroBeat has specialized agents with unique roles compared to the standard ones 
 
 ### **Refineries (Reviewers)**
 
-*Local* - Intelligence - 2 Agents - Fits In CPU + RAM
+*Local* - Intelligence - 1 Agents - Fits In CPU + RAM
 
 *   DeepSeek-R1-Distill-Qwen-32B: ~3-5 tps 4-bit (Q4_K_M) GGUF. Uses chain of thought reasoning for code reviews. Takes roughly 20GB of RAM. Assigned P-Cores 0-5 from CPU.
 
-*   Qwen3-7B-Instruct: ~3.5 tps 4-bit (Q4_K_M) GGUF. Performs documentation tasks. Assigned E-Cores 8-11 from CPU.
+*   Qwen3-7B-Instruct: ~3.5 tps 4-bit (Q4_K_M) GGUF. Performs documentation tasks. Assigned E-Cores 8-11 from CPU. Takes about 4.8GB RAM before token load, and ~7.2GB after using 32k tokens.
 
+*   Llama 4 Scout: ~3-5 tps 4-bit (Q4_K_M) GGUF. 2.0GB (KV)	CPU + 128GB RAM. We will load entire model onto ~68GB RAM then offload KV Cache and first few layers to 2GB VRAM on our GPU.
 
 *Local* - Intelligence - 1 Agent - Fits In VRAM
 
@@ -132,29 +137,25 @@ AeroBeat has specialized agents with unique roles compared to the standard ones 
 
 - [x] **Decide Crew Model**: 
 
-*   Gemini 3 Flash: High context window without the cost of deep thinking. Perfect for answering questions about rigs.
+*   Gemini 3 Flash: High context window without the cost of deep thinking. Perfect for answering questions about rigs. Spawned per rig when a convoy of beads is created that touches that rig.
 
 - [x] **Decide Polecat Model**: 
 
 *   Use a switcher strategy by estimating the token count of each bead.
 
-*   Qwen3-Coder-3B: If next two beads of work are < 6k tokens, create two agents with the Polecat role and tackle both simultaneously.
+*   2x Qwen3-Coder-3B: If next two beads of work are < 6k tokens, create two agents with the Polecat role and tackle both simultaneously. This leaves ~0.9GB VRAM when combined with our VRAM estimates from Zorin OS 18 Pro when browser GPU acceleration is disabled. We will have to be cognizant of our VRAM usage in the OS to not overload our GPU.
 
-or if hallucinations are an issue
+or when >= 6k tokens
 
-*   DeepSeek-Coder-V3-Lite (8B): If <= 6k tokens and if Qwen3-Coder-3B proves to hallucinate too much due to Godot 4.x gdscript specifics. Limit to one polecat at a time with best in weight reasoning and minimal hallucinations within a small token window.
-
-or for when token size matters
-
-*   Qwen3-Coder-7B: If >= 6k and <= 14k tokens, limit to one polecat at a time with good reasoning and minimal hallucinations but a larger token window.
+*   1x Qwen3-Coder-7B: Stay under <= 14k tokens to avoid spilling into CPU + RAM, Best in weight class for Godot 4.x .gdscript generation.
 
 - [x] **Decide Refinery Model**: 
 
-*   DeepSeek-R1-Distill-Qwen-32B: 1 refinery agent running locally on CPU & RAM using 6 performance cores for deep thinking. We will leave 2 performance cores for Zorin OS 18 Pro and engineering work.
+*   DeepSeek-R1-Distill-Qwen-32B: 1 refinery agent running locally on CPU & RAM using 6 performance cores for deep thinking. We will leave 2 performance cores for Zorin OS 18 Pro and engineering work. ~12-15 tps is good enough for the refinery agent.
 
 - [x] **Decide Librarian Model**: 
 
-*   SmolLM2-1.7B-Instruct: 1 library agent running locally on CPU & RAM using 6 effeciency cores for documentation writing. We will use all effeciency cores for this agent.
+*   SmolLM2-1.7B-Instruct: 1 library agent running locally on CPU & RAM using 4 effeciency cores for documentation writing. We will use all effeciency cores for this agent. ~100+ tps is very good for the librarian.
 
 - [x] **Decide Local Runner**: 
 
