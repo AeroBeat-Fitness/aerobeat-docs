@@ -127,7 +127,7 @@ AeroBeat has specialized agents with unique roles compared to the standard ones 
 
 *Local* - Documentation - 1 Agent - Fits In Local E-Cores + RAM
 
-*   SmolLM2-1.7B-Instruct : 150+ tps on E-Cores only.
+*   SmolLM2-1.7B-Instruct : 150+ tps on E-Cores only. ~2GB RAM.
 
 ## 1. Answer Remaining Questions
 
