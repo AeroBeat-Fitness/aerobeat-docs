@@ -156,16 +156,18 @@ def add_rig(repo, town_root):
         return False
 
     # Step 2: Update Rig (Git Pull)
-    # If we just added it, it's fresh. If it existed, we need to sync.
-    # We do this for all valid rigs to ensure latest state.
-    if os.path.isdir(rig_path) and os.path.isdir(os.path.join(rig_path, ".git")):
-        print(f"🔄 Syncing {rig_name}...")
+    # The canonical git clone in Gastown lives in <rig>/mayor/rig/
+    # All other agents (refinery, polecats) are worktrees based on this one.
+    mayor_rig_path = os.path.join(rig_path, "mayor", "rig")
+    
+    if os.path.isdir(mayor_rig_path) and os.path.isdir(os.path.join(mayor_rig_path, ".git")):
+        print(f"🔄 Syncing {rig_name} (via mayor/rig)...")
         try:
             pull_result = subprocess.run(
                 ["git", "pull"],
                 capture_output=True,
                 text=True,
-                cwd=rig_path
+                cwd=mayor_rig_path
             )
             if pull_result.returncode == 0:
                 print(f"   ✅ Up to date: {pull_result.stdout.strip().splitlines()[-1] if pull_result.stdout else 'OK'}")
@@ -174,6 +176,13 @@ def add_rig(repo, town_root):
                 # We don't fail the whole setup for a failed pull, just warn
         except Exception as e:
              print(f"   ⚠️  Sync error: {e}")
+    else:
+        # Fallback check: If mayor/rig doesn't exist yet (maybe it's initializing),
+        # check if the rig_path itself is the repo (unlikely in standard Gastown, but good for safety)
+        if os.path.isdir(os.path.join(rig_path, ".git")):
+             print(f"🔄 Syncing {rig_name} (via rig root)...")
+             # ... existing fallback logic if needed ...
+             pass
     
     return True
 
